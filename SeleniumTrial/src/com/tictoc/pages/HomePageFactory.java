@@ -12,8 +12,10 @@ import org.openqa.selenium.support.How;
 import utilities.auto.BrowserFactory;
 
 /**
+ * 
  * @author JoshZhuang
- *
+ * this class stores all objects and methods from TicToc homepage
+ * 
  */
 public class HomePageFactory {
 
