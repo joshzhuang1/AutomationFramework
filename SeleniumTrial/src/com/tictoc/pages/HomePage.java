@@ -11,6 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 /**
  * @author JoshZhuang
  * This class stores all locators and methods of TicToc homepage
+ * Add another line of comment
  */
 public class HomePage {
 
