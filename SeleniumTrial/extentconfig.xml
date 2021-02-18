@@ -28,7 +28,7 @@
     <reportName>
     
           <![CDATA[
-			<img src='C:\Users\JoshZhuang\OneDrive\SeleniumProjects\SeleniumTrial\src\resources\logo1.jpg'/>
+			<img src='../logo1.jpg'/>
 	      ]]>
     
     </reportName>
