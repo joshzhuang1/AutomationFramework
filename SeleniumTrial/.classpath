@@ -8,41 +8,52 @@
 			<attribute name="ignore_optional_problems" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/selenium-java-3.141.59/client-combined-3.141.59.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/selenium-java-3.141.59/libs/okhttp-3.11.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/junit-4.13.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/testng-7.3.0.jar"/>
+	<classpathentry kind="src" path="lib"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/extentreport/extentreports-5.0.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/extentreport/freemarker-2.3.30.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/extentreport/gson-2.8.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/extentreport/lombok-1.18.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/extentreport/reactive-streams-1.0.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/extentreport/rxjava-3.0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/commons-io-2.8.0/commons-io-2.8.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/commons-io-2.8.0/commons-io-2.8.0-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/commons-io-2.8.0/commons-io-2.8.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/commons-io-2.8.0/commons-io-2.8.0-tests.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/Desktop/workdocs/selenium/Selenium/commons-io-2.8.0/commons-io-2.8.0-test-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/poi-5.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/poi-examples-5.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/poi-excelant-5.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/poi-integration-5.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/poi-ooxml-5.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/poi-ooxml-full-5.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/poi-ooxml-lite-5.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/poi-scratchpad-5.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/lib/SparseBitSet-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/lib/commons-codec-1.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/lib/commons-collections4-4.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/lib/commons-math3-3.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/ooxml-lib/commons-compress-1.20.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/ooxml-lib/curvesapi-1.06.jar"/>
-	<classpathentry kind="lib" path="C:/Users/JoshZhuang/OneDrive/selenium/SeleniumJARs/Apache-poi-5.0.0/ooxml-lib/xmlbeans-4.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="lib" path="lib/testng-7.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-java-3.141.59/byte-buddy-1.8.15.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-java-3.141.59/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-java-3.141.59/guava-25.0-jre.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-java-3.141.59/okhttp-3.11.0.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-java-3.141.59/okio-1.14.0.jar"/>
+	<classpathentry kind="lib" path="lib/extentreport/extentreports-5.0.6.jar"/>
+	<classpathentry kind="lib" path="lib/extentreport/freemarker-2.3.30.jar"/>
+	<classpathentry kind="lib" path="lib/extentreport/gson-2.8.6.jar"/>
+	<classpathentry kind="lib" path="lib/extentreport/lombok-1.18.12.jar"/>
+	<classpathentry kind="lib" path="lib/extentreport/reactive-streams-1.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/extentreport/rxjava-3.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/commons io 2.8.0/commons-io-2.8.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/commons io 2.8.0/commons-io-2.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons io 2.8.0/commons-io-2.8.0-test-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons io 2.8.0/commons-io-2.8.0-tests.jar"/>
+	<classpathentry kind="lib" path="lib/commons io 2.8.0/commons-io-2.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/batik-all-1.13.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/bcpkix-jdk15on-1.68.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/bcprov-jdk15on-1.68.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/commons-codec-1.15.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/commons-collections4-4.4.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/commons-compress-1.20.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/commons-math3-3.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/curvesapi-1.06.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/fontbox-2.0.22.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/graphics2d-0.30.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/pdfbox-2.0.22.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/poi-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/poi-examples-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/poi-excelant-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/poi-integration-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/poi-ooxml-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/poi-ooxml-full-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/poi-ooxml-lite-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/poi-scratchpad-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/SparseBitSet-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/xml-apis-ext-1.3.04.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/xmlbeans-4.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/xmlgraphics-commons-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/Apache-poi-5.0.0/xmlsec-2.2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
