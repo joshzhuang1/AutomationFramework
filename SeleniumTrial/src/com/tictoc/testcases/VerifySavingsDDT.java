@@ -42,7 +42,7 @@ public class VerifySavingsDDT {
 	
 	@DataProvider(name = "calcdata")
 	public Object[][] passData() {  //return 2-dim array 
-		ExcelDataConfig inputsheet = new ExcelDataConfig("datatable/CalcInput.xlsx","Sheet1");
+		ExcelDataConfig inputsheet = new ExcelDataConfig("datatable/CalcInputShort.xlsx","Sheet1");
 		Object data[][] = inputsheet.getTestData();
 		return data;
 	}
