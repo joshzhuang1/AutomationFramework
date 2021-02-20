@@ -42,11 +42,18 @@ public class VerifySavingsDDT {
 	
 	@DataProvider(name = "calcdata")
 	public Object[][] passData() {  //return 2-dim array 
-		ExcelDataConfig inputsheet = new ExcelDataConfig("dataconfig/CalcInputShort.xlsx","Sheet1");
+		ExcelDataConfig inputsheet = new ExcelDataConfig("testdata/CalcInput.xlsx","Sheet1");
 		Object data[][] = inputsheet.getTestData();
 		return data;
 	}
 	
+//	@DataProvider(name = "calcdata")
+//	@Parameters({"dtname","sheetname"})
+//	public Object[][] passData(String filename, String sheet) {  //return 2-dim array 
+//		ExcelDataConfig inputsheet = new ExcelDataConfig(filename,sheet);
+//		Object data[][] = inputsheet.getTestData();
+//		return data;
+//	}	
 	
 	@BeforeClass //launch chrome and navigate to tictoc
 	@Parameters({"selectedbrowser","startingurl"}) // !!!this parameters will be from VerifySavingsDDT.xml and passed to below launchApp method

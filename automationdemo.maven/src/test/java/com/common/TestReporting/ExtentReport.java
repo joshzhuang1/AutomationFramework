@@ -24,9 +24,9 @@ public class ExtentReport {
 	public static void initReports(String foldername) throws IOException {
 		if(Objects.isNull(extent)) { // don't run this if extent object already exists
 			extent = new ExtentReports(); //create new extentreport object
-			ExtentSparkReporter spark = new ExtentSparkReporter("TestReports/"+foldername+"/index.html"); //set report html file path and name
+			ExtentSparkReporter spark = new ExtentSparkReporter("testreports/"+foldername+"/index.html"); //set report html file path and name
 			extent.attachReporter(spark); //Attach a reporter to access all started tests, nodes and logs			
-			spark.loadXMLConfig(new File("extentconfig.xml")); //Load extentconfig.xml file	
+			spark.loadXMLConfig(new File("XMLfiles/extentconfig.xml")); //Load extentconfig.xml file	
 		}
 
 	}
@@ -57,7 +57,7 @@ public class ExtentReport {
 	//tear down report, open report, and sync test result
 	public static void flushReports(String foldername) throws IOException {
 		extent.flush(); //write all the test logs to the report file
-		Desktop.getDesktop().browse(new File("TestReports/"+foldername+"/index.html").toURI()); //open html report at the end of the test
+		Desktop.getDesktop().browse(new File("testreports/"+foldername+"/index.html").toURI()); //open html report at the end of the test
 		syncReportResult(); //if any failed steps in Extentreport, also fail TestNG report.
 	}
 	

@@ -82,7 +82,7 @@ public class ExtentReportDemo {
 	public void ExtentReportDemo() throws IOException, URISyntaxException, InterruptedException {
 
 		ExtentReports extent = new ExtentReports(); //create new extentreport object
-		ExtentSparkReporter spark = new ExtentSparkReporter("./TestReports/index.html"); //set report file path and name
+		ExtentSparkReporter spark = new ExtentSparkReporter("./testreports/index.html"); //set report file path and name
 		extent.attachReporter(spark); //Attach a reporter to access all started tests, nodes and logs
 		
 		//spark.config().setDocumentTitle("Regression ABC testsuite"); //html file title
@@ -116,10 +116,10 @@ public class ExtentReportDemo {
 		
 		extent.flush(); //unless you call this method, your report will not be writen with logs
 //		//Desktop.getDesktop().browse(new File("./TestReports/index.html").toURI()); //relative path not working???????
-		Desktop.getDesktop().browse(new File("C:\\Users\\JoshZhuang\\OneDrive\\SeleniumProjects\\SeleniumTrial\\TestReports\\index.html").toURI()); //open the report right after text execution
+		Desktop.getDesktop().browse(new File("/testreports/index.html").toURI()); //open the report right after text execution
 	
 		ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
-		URL resourcea = contextClassLoader.getResource("/TestReports/index.html");
+		URL resourcea = contextClassLoader.getResource("/testreports/index.html");
 		Desktop.getDesktop().open(new File(resourcea.toURI()));
 	}
 	

@@ -44,8 +44,8 @@ public class ExtscreenshotDemo {
 	@BeforeSuite
 	public void setUp() throws IOException {
 		extent = new ExtentReports(); //create new extentreport object
-		ExtentSparkReporter spark = new ExtentSparkReporter("./TestReports/index.html"); //set report html file path and name
-		spark.loadXMLConfig(new File("extentconfig.xml")); //Load extentconfig.xml file
+		ExtentSparkReporter spark = new ExtentSparkReporter("./testreports/index.htmll"); //set report html file path and name
+		spark.loadXMLConfig(new File("XMLfiles/extentconfig.xml")); //Load extentconfig.xml file
 		extent.attachReporter(spark); //Attach a reporter to access all started tests, nodes and logs		
 	}
 	
