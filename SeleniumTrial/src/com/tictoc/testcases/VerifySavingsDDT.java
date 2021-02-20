@@ -37,20 +37,20 @@ public class VerifySavingsDDT {
 	WebDriver ldriver;
 	String reportfolder = "VerifySavingsDTT";
 //	String browsername = "chrome";      		// "edge";
-	String url = "https://tictoc.com.au/";		// "https://www.nab.com.au/"
+//	String url = "https://tictoc.com.au/";		// "https://www.nab.com.au/"
 	
 	
 	@DataProvider(name = "calcdata")
 	public Object[][] passData() {  //return 2-dim array 
-		ExcelDataConfig inputsheet = new ExcelDataConfig("datatable/CalcInputShort.xlsx","Sheet1");
+		ExcelDataConfig inputsheet = new ExcelDataConfig("dataconfig/CalcInputShort.xlsx","Sheet1");
 		Object data[][] = inputsheet.getTestData();
 		return data;
 	}
 	
 	
 	@BeforeClass //launch chrome and navigate to tictoc
-	@Parameters({"selectedbrowser"}) // !!!this parameters will be from VerifySavingsDDT.xml and passed to below launchApp method
-	public void launchApp(String browsername) throws InterruptedException {
+	@Parameters({"selectedbrowser","startingurl"}) // !!!this parameters will be from VerifySavingsDDT.xml and passed to below launchApp method
+	public void launchApp(String browsername, String url) throws InterruptedException {
 		ldriver = BrowserFactory.initBrowser(browsername); //init threadlocal instance - recommended!
 		Thread.sleep(2000);	
 		
