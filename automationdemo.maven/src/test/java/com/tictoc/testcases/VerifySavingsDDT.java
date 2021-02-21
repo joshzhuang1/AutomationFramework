@@ -36,24 +36,20 @@ public class VerifySavingsDDT {
 	
 	WebDriver ldriver;
 	String reportfolder = "VerifySavingsDTT";
-//	String browsername = "chrome";      		// "edge";
-//	String url = "https://tictoc.com.au/";		// "https://www.nab.com.au/"
 	
-	
+	//specify testdata input
+	String wbname = "testdata/CalcInput.xlsx";
+//	String wbname = "testdata/CalcInputShort.xlsx";
+	String stname = "Sheet1";
+
+		
 	@DataProvider(name = "calcdata")
 	public Object[][] passData() {  //return 2-dim array 
-		ExcelDataConfig inputsheet = new ExcelDataConfig("testdata/CalcInput.xlsx","Sheet1");
+		ExcelDataConfig inputsheet = new ExcelDataConfig(wbname,stname);
 		Object data[][] = inputsheet.getTestData();
 		return data;
 	}
 	
-//	@DataProvider(name = "calcdata")
-//	@Parameters({"dtname","sheetname"})
-//	public Object[][] passData(String filename, String sheet) {  //return 2-dim array 
-//		ExcelDataConfig inputsheet = new ExcelDataConfig(filename,sheet);
-//		Object data[][] = inputsheet.getTestData();
-//		return data;
-//	}	
 	
 	@BeforeClass //launch chrome and navigate to tictoc
 	@Parameters({"selectedbrowser","startingurl"}) // !!!this parameters will be from VerifySavingsDDT.xml and passed to below launchApp method
@@ -88,7 +84,6 @@ public class VerifySavingsDDT {
 	@Test(dataProvider ="calcdata") //below method needs 4 args - same structure as imported datatable
 	public void VerifyRefiSavings(String loanamount,String currentrate,String remyears,String breakevenrate) throws InterruptedException, IOException {
 		
-
 		
 		//print test data info in report
 		ExtentLogger.info("***TEST DATA*** loanamount "+loanamount+", currentrate "+currentrate+", remyears "+remyears+", breakevenrate "+breakevenrate);
