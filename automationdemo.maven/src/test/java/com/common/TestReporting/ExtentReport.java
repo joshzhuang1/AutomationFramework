@@ -66,7 +66,7 @@ public class ExtentReport {
 	public static void syncReportResult() {
 		Status currentstatus = ExtentManager.getExtentTest().getStatus(); //get pass/fail status of current test
 		if (Objects.equals(currentstatus.name(), "FAIL")) { //if extentport status is fail, also fail the TestNG test. Otherwise TestNG report is still pass.
-			Assert.fail();
+			Assert.fail("Set TestNG result to fail according to extent report results");
 		}		
 	}
 	
