@@ -64,31 +64,31 @@ public final class ExtentLogger {
 
 	//set pass with screenshot
 	public static void passshot(String message) throws IOException {
-		ExtentManager.getExtentTest().pass(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		ExtentManager.getExtentTest().pass(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("jpg"))).build());
 	}
 	
 	
 	//set fail with screenshot
 	public static void failshot(String message) throws IOException {
-		ExtentManager.getExtentTest().fail(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		ExtentManager.getExtentTest().fail(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("jpg"))).build());
 	}
 	
 	
 	//set warning with screenshot
 	public static void warningshot(String message) throws IOException {
-		ExtentManager.getExtentTest().warning(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		ExtentManager.getExtentTest().warning(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("jpg"))).build());
 	}
 	
 	
 	//set info with screenshot
 	public static void infoshot(String message) throws IOException {
-		ExtentManager.getExtentTest().info(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		ExtentManager.getExtentTest().info(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("jpg"))).build());
 	}
 	
 	
 	//set skip with screenshot
 	public static void skipshot(String message) throws IOException {
-		ExtentManager.getExtentTest().skip(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		ExtentManager.getExtentTest().skip(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("jpg"))).build());
 	}
 	
 	
