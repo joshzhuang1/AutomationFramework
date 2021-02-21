@@ -13,7 +13,7 @@
 	 
 	<!-- specify testng.xml for test execution -->
 	<properties>
-	<suiteXmlFile>XMLfiles/testng.xml</suiteXmlFile>
+	<suiteXmlFile>XMLfiles/HelloWorldMaven.xml</suiteXmlFile>
 	 
 	</properties>
 	 
