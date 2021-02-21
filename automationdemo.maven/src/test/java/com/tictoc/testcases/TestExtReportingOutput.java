@@ -25,7 +25,7 @@ import utilities.auto.DriverFactory;
 	public class TestExtReportingOutput {
 		
 		WebDriver localdriver;
-		String testname = "testing XYZ random";
+		String testname = "TestExtReportingOutput";
 		String browsername = "chrome";      		// "edge";
 		String url = "https://tictoc.com.au/";		// "https://www.nab.com.au/"
 		

@@ -96,7 +96,8 @@ public final class ExtentLogger {
 	private static String getScreenshotPath(String imgname) throws IOException {
 		WebDriver driver = DriverFactory.getInstance().getDriver(); //get current webdriver instance!!! this only works with threadlocal instance
 		File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		String path = System.getProperty("user.dir")+"/testreports/_Screenshots/"+imgname; //full path - C:\Users\JoshZhuang\OneDrive\SeleniumProjects\SeleniumTrial\TestReports\_Screenshots
+//		String path = System.getProperty("user.dir")+"/testreports/_Screenshots/"+imgname;
+		String path = "testreports/_Screenshots/"+imgname; 
 		FileUtils.copyFile(source, new File(path));
 		return path;				
 	}
