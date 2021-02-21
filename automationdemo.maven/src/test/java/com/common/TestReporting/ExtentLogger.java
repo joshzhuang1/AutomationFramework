@@ -64,31 +64,31 @@ public final class ExtentLogger {
 
 	//set pass with screenshot
 	public static void passshot(String message) throws IOException {
-		ExtentManager.getExtentTest().pass(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("jpg"))).build());
+		ExtentManager.getExtentTest().pass(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
 	}
 	
 	
 	//set fail with screenshot
 	public static void failshot(String message) throws IOException {
-		ExtentManager.getExtentTest().fail(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("jpg"))).build());
+		ExtentManager.getExtentTest().fail(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
 	}
 	
 	
 	//set warning with screenshot
 	public static void warningshot(String message) throws IOException {
-		ExtentManager.getExtentTest().warning(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("jpg"))).build());
+		ExtentManager.getExtentTest().warning(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
 	}
 	
 	
 	//set info with screenshot
 	public static void infoshot(String message) throws IOException {
-		ExtentManager.getExtentTest().info(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("jpg"))).build());
+		ExtentManager.getExtentTest().info(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
 	}
 	
 	
 	//set skip with screenshot
 	public static void skipshot(String message) throws IOException {
-		ExtentManager.getExtentTest().skip(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("jpg"))).build());
+		ExtentManager.getExtentTest().skip(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
 	}
 	
 	
@@ -96,8 +96,8 @@ public final class ExtentLogger {
 	private static String getScreenshotPath(String imgname) throws IOException {
 		WebDriver driver = DriverFactory.getInstance().getDriver(); //get current webdriver instance!!! this only works with threadlocal instance
 		File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//		String path = System.getProperty("user.dir")+"/testreports/_Screenshots/"+imgname;
-		String path = "testreports/_Screenshots/"+imgname; 
+		String path = System.getProperty("user.dir")+"/testreports/_Screenshots/"+imgname;
+//		String path = "testreports/_Screenshots/"+imgname; 
 		FileUtils.copyFile(source, new File(path));
 		return path;				
 	}
