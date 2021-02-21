@@ -9,6 +9,6 @@ public class HelloWorldMaven {
 	@Test
 	public void testHello(String text1,String text2) {
 		
-		System.out.println("$$$$$$$$HELLO MAVEN WORLD$$$$$$$"+text1+" "+text2);
+		System.out.println("$$$$$$$$$$$$$$$HELLO MAVEN WORLD$$$$$$$$$$$$$$"+text1+" ############### "+text2);
 	}
 }
