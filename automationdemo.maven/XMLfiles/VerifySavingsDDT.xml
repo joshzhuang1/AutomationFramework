@@ -14,6 +14,7 @@
 	  </classes>
   </test> <!-- Test -->
     
+    
   <test name="EdgeTest">  
 	  <parameter name="selectedbrowser" value="Edge" />    
 	  <parameter name="testcasename" value="Verify Loan Calc - Edge" />		 
