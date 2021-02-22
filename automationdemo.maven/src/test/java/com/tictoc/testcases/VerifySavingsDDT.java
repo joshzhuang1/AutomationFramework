@@ -38,8 +38,8 @@ public class VerifySavingsDDT {
 	String reportfolder = "VerifySavingsDTT";
 	
 	//specify testdata input
-//	String wbname = "testdata/CalcInput.xlsx";
-	String wbname = "testdata/CalcInputShort.xlsx";
+	String wbname = "testdata/CalcInput.xlsx";
+//	String wbname = "testdata/CalcInputShort.xlsx";
 	String stname = "Sheet1";
 
 		

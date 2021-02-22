@@ -14,5 +14,15 @@
 	  </classes>
   </test> <!-- Test -->
     
+  <test name="EdgeTest">  
+	  <parameter name="selectedbrowser" value="Edge" />    
+	  <parameter name="testcasename" value="Verify Loan Calc - Edge" />		 
+	  <parameter name="startingurl" value="https://tictoc.com.au/" />	
+	  <classes> 
+		  <class name="com.tictoc.testcases.VerifySavingsDDT">               
+		<!--  	<methods> <include name="verifylogger" /> </methods> -->
+		  </class>
+	  </classes>
+  </test> <!-- Test -->
   
 </suite> <!-- Suite -->
