@@ -6,7 +6,6 @@ package seleniumgrid;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -14,24 +13,23 @@ import org.testng.annotations.Test;
 
 /**
  * @author JoshZhuang
- * To run this test on Selenium Grid
- * Hub will auto assign the execution to a node
+ *
+ * the selenium hub in docker is "http://localhost:4546/wd/hub"
+ * this is HEADLESS BROWSER testing!!!!!!!!!!!! NO GUI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ * 
  */
-
-//Start the selenium hub and selenium node for this test to work
-
-public class testOnGrid {
-
+public class testGridonDocker {
 	@Test
 	public void test() throws MalformedURLException {
 		DesiredCapabilities cap =  new DesiredCapabilities();
 		cap.setBrowserName("chrome"); //specify browser. need to make sure chromedriver.exe is phisically on the node
-		cap.setPlatform(Platform.WINDOWS); //specify platform 
-		URL huburl = new URL("http://localhost:4444/wd/hub"); //local hub address
+//		cap.setPlatform(Platform.WINDOWS); //specify platform 
+		URL huburl = new URL("http://localhost:4546/wd/hub"); //Docker hub address
 		
 		//Hub will see which node has chrome browser and launch there
 		WebDriver driver = new RemoteWebDriver(huburl,cap); //start browser instance on remote driver
-		driver.get("https://www.google.com/");
+		driver.get("https://www.nab.com/");
+		System.out.println ("#######################this is f'king HEADLESS#############################");
 		System.out.println("Title is "+driver.getTitle());
 		driver.quit();
 	}
