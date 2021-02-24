@@ -3,6 +3,7 @@
 <suite name="Suite" parallel="classes">  <!-- parallel testing on class level, going to different docker container with Selenium Grid -->
   <test thread-count="5" name="Test">
     <classes>
+      <class name="seleniumgrid.SetupRunTimeDocker"/>  <!-- this is to create/destory runtime docker containers before/after test!!!!-->
       <class name="seleniumgrid.testGridonDocker1"/>
       <class name="seleniumgrid.testGridonDocker2"/>
       <class name="seleniumgrid.testGridonDocker3"/>
