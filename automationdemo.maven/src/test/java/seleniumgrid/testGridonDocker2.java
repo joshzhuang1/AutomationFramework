@@ -18,9 +18,9 @@ import org.testng.annotations.Test;
  * this is HEADLESS BROWSER testing!!!!!!!!!!!! NO GUI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  * 
  */
-public class testGridonDocker {
+public class testGridonDocker2 {
 	@Test
-	public void test() throws MalformedURLException {
+	public void test() throws MalformedURLException, InterruptedException {
 		DesiredCapabilities cap =  new DesiredCapabilities();
 		cap.setBrowserName("chrome"); //specify browser. need to make sure chromedriver.exe is phisically on the node
 //		cap.setPlatform(Platform.WINDOWS); //specify platform 
@@ -28,8 +28,9 @@ public class testGridonDocker {
 		
 		//Hub will see which node has chrome browser and launch there
 		WebDriver driver = new RemoteWebDriver(huburl,cap); //start browser instance on remote driver
-		driver.get("https://www.nab.com/");
+		driver.get("https://www.google.com.au/");
 		System.out.println ("#######################this is f'king HEADLESS#############################");
+		Thread.sleep(3000);
 		System.out.println("Title is "+driver.getTitle());
 		driver.quit();
 	}
