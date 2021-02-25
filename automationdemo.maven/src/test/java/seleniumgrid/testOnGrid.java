@@ -23,16 +23,17 @@ import org.testng.annotations.Test;
 public class testOnGrid {
 
 	@Test
-	public void test() throws MalformedURLException {
+	public void test() throws MalformedURLException, Exception {
 		DesiredCapabilities cap =  new DesiredCapabilities();
 		cap.setBrowserName("chrome"); //specify browser. need to make sure chromedriver.exe is phisically on the node
-		cap.setPlatform(Platform.WINDOWS); //specify platform 
-		URL huburl = new URL("http://localhost:4444/wd/hub"); //local hub address
+//		cap.setPlatform(Platform.WINDOWS); //specify platform 
+		URL huburl = new URL("http://localhost:4546/wd/hub"); //local hub address
 		
 		//Hub will see which node has chrome browser and launch there
 		WebDriver driver = new RemoteWebDriver(huburl,cap); //start browser instance on remote driver
 		driver.get("https://www.google.com/");
 		System.out.println("Title is "+driver.getTitle());
+		Thread.sleep(3000);
 		driver.quit();
 	}
 }
