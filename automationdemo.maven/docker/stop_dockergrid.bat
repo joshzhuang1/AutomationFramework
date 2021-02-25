@@ -1,2 +1,2 @@
 cd C:\Users\JoshZhuang\git\AutomationFramework\automationdemo.maven\docker
-docker-compose down
+docker-compose -f docker-compose-v3.yml down
