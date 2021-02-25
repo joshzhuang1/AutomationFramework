@@ -20,7 +20,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
  *
  */
 public class RmtBrowserFactory {
-
+	static final String huburlstring = "http://localhost:4546/wd/hub";
 	static WebDriver driver;
 	
 	//init a threadlocal browser instance ---- this also caters for multi-threading. MAGIC.
@@ -33,30 +33,28 @@ public class RmtBrowserFactory {
 	}
 	
 	
-	//pass browser name for browser instance creation
+	//create remotewebdriver instance
 	public static WebDriver createBrowserInstance(String browserName) throws IOException {
-		if (browserName.equalsIgnoreCase("firefox")) {
-			driver = new FirefoxDriver(); //launch firefox
+		DesiredCapabilities cap =  new DesiredCapabilities();
+		
+		if (browserName.equalsIgnoreCase("firefox")) {	
+			cap.setBrowserName("firefox");		
 		}
 		
-		else if (browserName.equalsIgnoreCase("chrome")) {
-//			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-//			driver = new ChromeDriver(); //launch chrome		
-			DesiredCapabilities cap =  new DesiredCapabilities();
-			cap.setBrowserName("chrome"); //specify browser. need to make sure chromedriver.exe is phisically on the node
-//			cap.setPlatform(Platform.WINDOWS); //specify platform 
-			URL huburl = new URL("http://localhost:4546/wd/hub"); //local hub address
-			
-			//Hub will see which node has chrome browser and launch there
-			driver = new RemoteWebDriver(huburl,cap); //start browser instance on remote driver
-			
+		else if (browserName.equalsIgnoreCase("chrome")) {			
+			cap.setBrowserName("chrome"); 		
 		}
 		
 		else if (browserName.equalsIgnoreCase("edge")) {
-			System.setProperty("webdriver.edge.driver", "drivers/msedgedriver.exe");
-			driver = new EdgeDriver(); //launch edge
+			cap.setBrowserName("edge");	
 		}
-			
+		
+//		cap.setPlatform(Platform.WINDOWS); //specify platform 
+		URL huburl = new URL(huburlstring); //selenium hub address
+		
+		//start browser instance on remotewebdriver
+		driver = new RemoteWebDriver(huburl,cap); 
+		
 		return driver;
 	}
 	
