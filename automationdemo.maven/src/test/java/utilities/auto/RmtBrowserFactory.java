@@ -46,8 +46,12 @@ public class RmtBrowserFactory {
 		}
 		
 		else if (browserName.equalsIgnoreCase("edge")) {
-			cap.setBrowserName("edge");	
+			cap.setBrowserName("MicrosoftEdge");	
 		}
+		
+//		else if (browserName.equalsIgnoreCase("opera")) {
+//			cap.setBrowserName("opera");
+//		}
 		
 //		cap.setPlatform(Platform.WINDOWS); //specify platform 
 		URL huburl = new URL(huburlstring); //selenium hub address
