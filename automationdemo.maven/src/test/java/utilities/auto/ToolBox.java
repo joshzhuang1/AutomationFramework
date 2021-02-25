@@ -3,6 +3,8 @@
  */
 package utilities.auto;
 
+import java.util.Objects;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -42,7 +44,14 @@ public class ToolBox {
 		
 		//explicit wait for a webelement to show up within x seconds,if not shown, print info.
 		public static void driverwaitforObject(WebElement webelement, int sec) {
-			WebDriver driver = DriverFactory.getInstance().getDriver();
+			WebDriver driver;
+			
+			//can be either local driver or remote driver
+			driver = DriverFactory.getInstance().getDriver();
+			if (Objects.isNull(driver)) {
+				driver = RmtDriverFactory.getInstance().getDriver();
+			}
+				
 			WebDriverWait wait = new WebDriverWait(driver, sec); // create new WebDriverWait object. maximum time 5s 
 			//below Wait max. sec seconds for the webelement to show (condition = visibilityOf webelement). If not throw error.
 			try {
@@ -52,6 +61,7 @@ public class ToolBox {
 				ExtentLogger.warning("Webelement is NOT displayed. Waiting time "+sec+" seconds."); //if not show, print to ext report
 			}
 		}
+		
 	}
 
 
