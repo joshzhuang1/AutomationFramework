@@ -27,4 +27,16 @@
   </test> <!-- Test -->
   
   
+    <test name="FireFoxTest">  
+	  <parameter name="selectedbrowser" value="firefox" />    
+	  <parameter name="testcasename" value="Verify Loan Calc - firefox" />		 
+	  <parameter name="startingurl" value="https://tictoc.com.au/" />	
+	  <classes> 
+		  <class name="com.tictoc.testcases.VerifySavingsDDTonGrid">               
+		<!--  	<methods> <include name="verifylogger" /> </methods> -->
+		  </class>
+	  </classes>
+  </test> <!-- Test -->
+  
+  
 </suite> <!-- Suite -->
