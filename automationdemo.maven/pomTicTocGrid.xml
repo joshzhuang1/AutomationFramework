@@ -11,7 +11,7 @@
 	<packaging>jar</packaging>
 	 
 	 
-	<!-- specify testng.xml for test execution -->
+	<!-- specify testng.xml for test execution!!!! -->
 	<properties>
 	<suiteXmlFile>XMLfiles/VerifySavingsDDTonGrid.xml</suiteXmlFile>
 	 
