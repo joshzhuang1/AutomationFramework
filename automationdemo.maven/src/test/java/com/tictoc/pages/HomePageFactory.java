@@ -56,7 +56,7 @@ public class HomePageFactory {
 	//Navigate to home page
 	public void gotoHomePage() throws InterruptedException{
 		tictoclogo.click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 	}
 	
 //	//testing method

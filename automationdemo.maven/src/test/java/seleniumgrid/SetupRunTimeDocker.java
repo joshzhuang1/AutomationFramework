@@ -16,7 +16,7 @@ public class SetupRunTimeDocker {
 	}
 	
 	
-	@AfterTest
+	@AfterTest //test
 	void stopDockerGrid() throws Exception {
 		String cmdline = System.getProperty("user.dir")+"\\docker\\stop_dockergrid.bat"; //get the batch file path
 		Runtime.getRuntime().exec("cmd /c start "+cmdline);	
