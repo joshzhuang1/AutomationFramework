@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import utilities.auto.BrowserFactory;
+import utilities.auto.ToolBox;
 
 /**
  * 
@@ -31,12 +32,13 @@ public class HomePageFactory {
 	@FindBy(how=How.XPATH,using="//img[@class='header__logo__main']")
 	WebElement tictoclogo;
 
-	
+	@FindBy(how=How.XPATH,using="//span[@class='icon far fa-angle-down']")
+	WebElement downarrow;
+
 	//Create a class constructor for HomePage Class. this is for cross browser testing. e.g. passing "Chrome".
 	public HomePageFactory(WebDriver driver) {
 		this.driver = driver;
 	}
-	
 	
 	
 	//Navigate to refinance calculator
@@ -47,8 +49,13 @@ public class HomePageFactory {
 		action.moveToElement(calcdropdown).perform(); //Find the element and hover over
 		Thread.sleep(1000);
 		
-		//Click the refinance calculator
-		reficalc.click();
+		try {
+			reficalc.click(); //Click the refinance calculator
+		} catch (Exception e) {
+			calculators.click();  //in firefox hover over doesn't pop up the drop down list, so use click instead
+			Thread.sleep(1000);
+			reficalc.click(); 
+		}
 		Thread.sleep(1000);
 	}
 	
