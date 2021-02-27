@@ -16,14 +16,13 @@ import org.openqa.selenium.WebDriver;
 import com.aventstack.extentreports.MediaEntityBuilder;
 
 import utilities.auto.DriverFactory;
-import utilities.auto.RmtDriverFactory;
+
 
 /**
  * @author JoshZhuang
  * Extentlogger is the interface to external testscripts.
  * test scripts call ExtentLogger.pass("msg"); to log result
  */
-
 
 
 public final class ExtentLogger {
@@ -98,7 +97,7 @@ public final class ExtentLogger {
 	private static String getScreenshotPath(String imgname) throws IOException {
 		WebDriver driver = DriverFactory.getInstance().getDriver(); //get current webdriver instance!!! this only works with threadlocal instance	
 		if (Objects.isNull(driver)) { //handle remote driver 
-			driver = RmtDriverFactory.getInstance().getDriver();
+			driver = DriverFactory.getInstance().getDriver();
 		}
 		
 		File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
