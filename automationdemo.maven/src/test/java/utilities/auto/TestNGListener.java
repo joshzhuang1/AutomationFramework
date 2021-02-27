@@ -40,10 +40,11 @@ public class TestNGListener implements ITestListener {
 		System.out.println("###Test Finished### --- "+result.getName());  
 	}
 	
-//	public void onException(Throwable throwable, WebDriver driver) {
-//		ExtentLogger.fail("###Exception thrown!!!### --- ");  
-//		// do stuff
-//	}
+	public void onTestFailure(ITestContext result) {
+		ExtentLogger.fail("###Exception thrown!!!### --- ");  
+		System.out.println("###test failliiieeed!!!### --- "+result.getName()); 
+		// do stuff
+	}
 
 	
 }

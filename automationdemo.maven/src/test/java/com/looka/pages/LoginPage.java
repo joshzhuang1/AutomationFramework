@@ -14,9 +14,9 @@ import utilities.auto.ToolBox;
 
 /**
  * @author JoshZhuang
- * this class stores all objects and methods from looka homepage
+ * this class stores all objects and methods from looka login page
  */
-public class HomePage {
+public class LoginPage {
 
 	WebDriver driver;
 	//locators
@@ -40,7 +40,7 @@ public class HomePage {
 	
 	
 	//Create a class constructor for HomePage Class. this is for cross browser testing. e.g. passing "Chrome".
-	public HomePage(WebDriver driver) {
+	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 	}
 	

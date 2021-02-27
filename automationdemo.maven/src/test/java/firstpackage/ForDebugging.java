@@ -8,10 +8,14 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.common.TestReporting.ExtentReport;
-import com.looka.pages.HomePage;
+import com.looka.pages.DashboardPage;
+import com.looka.pages.LoginPage;
+import com.looka.pages.OnboardingPage;
 
 import utilities.auto.BrowserFactory;
 import utilities.auto.DriverFactory;
@@ -21,12 +25,20 @@ import utilities.auto.DriverFactory;
  *
  */
 
+@Listeners(utilities.auto.TestNGListener.class)
 
 public class ForDebugging {
 	WebDriver ldriver;
 	String reportfolder = "Lookatests";
+	String testcasename = "Lookatests";
 	String browsername = "chrome";
 	String url = "https://www.looka.com/";
+	
+
+	@BeforeClass // init extreport
+	public void initExtentReport() throws IOException {
+		ExtentReport.createTestReport(reportfolder, testcasename); //init extent report
+	}
 	
 	@AfterClass //close chrome and flush extreport
 	public void closeApp() throws IOException {
@@ -38,22 +50,35 @@ public class ForDebugging {
 		ExtentReport.flushReports(reportfolder);
 	}
 
+	
+	
 	@Test
-	public void launchApp() throws Exception {
+	public void addLogoToFaviourite() throws Exception {
 		ldriver = BrowserFactory.initBrowser(browsername); //init threadlocal instance - recommended!
 		Thread.sleep(2000);	
-		ExtentReport.createTestReport(reportfolder, reportfolder); //init extent report
+//		ExtentReport.createTestReport(reportfolder, reportfolder); //init extent report
 		
 		
 		ldriver.manage().window().maximize(); //maximise window
 		ldriver.get(url); //navigate to *url*	
 		
-		HomePage homepage = PageFactory.initElements(ldriver, HomePage.class);
+		//init LoginPage
+		LoginPage loginpage = PageFactory.initElements(ldriver, LoginPage.class);	
 		
-		homepage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
+		//login
+		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
 		
-		Thread.sleep(1000);	
+		//init DashboardPage
+		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
 		
+		//navigate to logo generator
+		dashboardpage.navigateToGenerator();
+		
+		//init onboarding page
+		OnboardingPage onboardingpage = PageFactory.initElements(ldriver, OnboardingPage.class);
+		
+		//generate a logo
+		onboardingpage.generateLogo();
 	}
 
 }
