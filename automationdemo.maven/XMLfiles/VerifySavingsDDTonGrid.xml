@@ -7,7 +7,7 @@
 	  <parameter name="selectedbrowser" value="chrome" />    
 	  <parameter name="testcasename" value="Verify Loan Calc - Chrome" />		 
 	  <parameter name="startingurl" value="https://tictoc.com.au/" />
-	  <parameter name="jenkinshub" value="http://localhost:4546/wd/hub" />
+	  <parameter name="seleniumhub" value="http://localhost:4546/wd/hub" />
 	  <classes> 
 		  <class name="com.tictoc.testcases.VerifySavingsDDTonGrid">               
 		<!--  	<methods> <include name="verifylogger" /> </methods> -->
@@ -20,7 +20,7 @@
 	  <parameter name="selectedbrowser" value="firefox" />    
 	  <parameter name="testcasename" value="Verify Loan Calc - firefox" />		 
 	  <parameter name="startingurl" value="https://tictoc.com.au/" />	
-	  <parameter name="jenkinshub" value="http://localhost:4546/wd/hub" />
+	  <parameter name="seleniumhub" value="http://localhost:4546/wd/hub" />
 	  <classes> 
 		  <class name="com.tictoc.testcases.VerifySavingsDDTonGrid">               
 		<!--  	<methods> <include name="verifylogger" /> </methods> -->
@@ -33,7 +33,7 @@
 	  <parameter name="selectedbrowser" value="edge" />    
 	  <parameter name="testcasename" value="Verify Loan Calc - edge" />		 
 	  <parameter name="startingurl" value="https://tictoc.com.au/" />	
-	  <parameter name="jenkinshub" value="http://localhost:4546/wd/hub" />
+	  <parameter name="seleniumhub" value="http://localhost:4546/wd/hub" />
 	  <classes> 
 		  <class name="com.tictoc.testcases.VerifySavingsDDTonGrid">               
 		<!--  	<methods> <include name="verifylogger" /> </methods> -->

@@ -22,7 +22,6 @@ import com.tictoc.pages.RefiCalcPageFactory;
 import utilities.auto.BrowserFactory;
 import utilities.auto.DriverFactory;
 import utilities.auto.ExcelDataConfig;
-import utilities.auto.RmtBrowserFactory;
 
 /**
  * @author JoshZhuang
@@ -53,7 +52,7 @@ public class VerifySavingsDDTonGrid {
 	
 	
 	@BeforeClass //launch chrome and navigate to tictoc
-	@Parameters({"selectedbrowser","startingurl","jenkinshub"}) // !!!this parameters will be from VerifySavingsDDT.xml and passed to below launchApp method
+	@Parameters({"selectedbrowser","startingurl","seleniumhub"}) // !!!this parameters will be from VerifySavingsDDT.xml and passed to below launchApp method
 	public void launchApp(String browsername, String auturl,String huburl) throws InterruptedException, IOException {
 		ldriver = BrowserFactory.initBrowser(browsername,huburl); //init threadlocal instance - recommended!
 		Thread.sleep(2000);	
