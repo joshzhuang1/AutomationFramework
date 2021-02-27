@@ -27,8 +27,8 @@ public class RmtBrowserFactory {
 	public static WebDriver initBrowser(String browserName) throws IOException {
 		driver = createBrowserInstance(browserName);      // create browser instance based on browser name
 		
-		RmtDriverFactory.getInstance().setDriver(driver);    //to set browser instance as threadlocal for multi-threading
-		driver = RmtDriverFactory.getInstance().getDriver();  //now driver becomes "threadlocal instance", so that multi-threading is possible		
+		DriverFactory.getInstance().setDriver(driver);    //to set browser instance as threadlocal for multi-threading
+		driver = DriverFactory.getInstance().getDriver();  //now driver becomes "threadlocal instance", so that multi-threading is possible		
 		return driver;										// return driver
 	}
 	

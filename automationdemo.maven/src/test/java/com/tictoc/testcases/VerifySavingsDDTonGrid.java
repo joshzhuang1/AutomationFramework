@@ -19,9 +19,10 @@ import com.common.TestReporting.ExtentReport;
 import com.tictoc.pages.HomePageFactory;
 import com.tictoc.pages.RefiCalcPageFactory;
 
+import utilities.auto.BrowserFactory;
+import utilities.auto.DriverFactory;
 import utilities.auto.ExcelDataConfig;
 import utilities.auto.RmtBrowserFactory;
-import utilities.auto.RmtDriverFactory;
 
 /**
  * @author JoshZhuang
@@ -52,13 +53,13 @@ public class VerifySavingsDDTonGrid {
 	
 	
 	@BeforeClass //launch chrome and navigate to tictoc
-	@Parameters({"selectedbrowser","startingurl"}) // !!!this parameters will be from VerifySavingsDDT.xml and passed to below launchApp method
-	public void launchApp(String browsername, String url) throws InterruptedException, IOException {
-		ldriver = RmtBrowserFactory.initBrowser(browsername); //init threadlocal instance - recommended!
+	@Parameters({"selectedbrowser","startingurl","jenkinshub"}) // !!!this parameters will be from VerifySavingsDDT.xml and passed to below launchApp method
+	public void launchApp(String browsername, String auturl,String huburl) throws InterruptedException, IOException {
+		ldriver = BrowserFactory.initBrowser(browsername,huburl); //init threadlocal instance - recommended!
 		Thread.sleep(2000);	
 		
 		ldriver.manage().window().maximize(); //maximise window
-		ldriver.get(url); //navigate to *url*	
+		ldriver.get(auturl); //navigate to *url*	
 	}
 	
 	
@@ -74,7 +75,7 @@ public class VerifySavingsDDTonGrid {
 	public void closeApp() throws IOException {
 
 		//		driver.quit();  //close browser
-		RmtDriverFactory.getInstance().removeDriver(); //close current threadlocal browser instance --- for multi-threading
+		DriverFactory.getInstance().removeDriver(); //close current threadlocal browser instance --- for multi-threading
 		
 		//finalise test report
 		ExtentReport.flushReports(reportfolder);

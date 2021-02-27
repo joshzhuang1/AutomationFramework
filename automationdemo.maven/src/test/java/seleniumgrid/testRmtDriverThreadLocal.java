@@ -10,7 +10,6 @@ import org.testng.annotations.Test;
 import utilities.auto.BrowserFactory;
 import utilities.auto.DriverFactory;
 import utilities.auto.RmtBrowserFactory;
-import utilities.auto.RmtDriverFactory;
 
 /**
  * @author JoshZhuang
@@ -33,7 +32,7 @@ public class testRmtDriverThreadLocal {
 		ldriver.get("https://www.google.com/");
 		System.out.println("Title is "+ldriver.getTitle());
 		Thread.sleep(2000);
-		RmtDriverFactory.getInstance().removeDriver();
+		DriverFactory.getInstance().removeDriver();
 	}
 	
 	
