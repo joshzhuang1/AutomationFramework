@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -31,7 +32,7 @@ import utilities.auto.ExcelDataConfig;
  * using extent report to capture test result
  * 
  */
-
+@Listeners(utilities.auto.TestNGListener.class)
 public class VerifySavingsDDTonGrid {
 	
 	WebDriver ldriver;

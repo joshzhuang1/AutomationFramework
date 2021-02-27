@@ -58,7 +58,7 @@ public class ExtentReport {
 	public static void flushReports(String foldername) throws IOException {
 		extent.flush(); //write all the test logs to the report file
 		Desktop.getDesktop().browse(new File("testreports/"+foldername+"/index.html").toURI()); //open html report at the end of the test
-		syncReportResult(); //if any failed steps in Extentreport, also fail TestNG report.
+//		syncReportResult(); //if any failed steps in Extentreport, also fail TestNG report.
 	}
 	
 	
