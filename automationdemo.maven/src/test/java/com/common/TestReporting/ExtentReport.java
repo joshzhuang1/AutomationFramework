@@ -32,10 +32,10 @@ public class ExtentReport {
 	}
 	
 	
-	//	create test: the testcasename is actually a logger name of extent report. 
-	//	with different logger names, extent report will create a different tab for reporting.
-	public static void createTest(String testcasename) {
-		ExtentTest test = extent.createTest(testcasename);
+	//	create test: can pass testcasename as loggername for common practice. 
+	//	with different logger names, extent report will create different tabs in a html report.
+	public static void createTest(String loggername) {
+		ExtentTest test = extent.createTest(loggername);
 		ExtentManager.setExtentTest(test);
 	}
 	
