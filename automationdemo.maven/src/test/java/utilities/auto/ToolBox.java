@@ -42,8 +42,8 @@ public class ToolBox {
 		    }	
 		
 		
-		//explicit wait for a webelement to show up within x seconds,if not shown, print info.
-		public static void driverwaitforObject(WebElement webelement, int sec) {
+		//explicit wait for a webelement to show up within x seconds,if not shown, print info, return false. otherwise return true
+		public static boolean waitforObject(WebElement webelement, int sec) {
 			WebDriver driver;
 			
 			//can be either local driver or remote driver
@@ -56,12 +56,13 @@ public class ToolBox {
 			//below Wait max. sec seconds for the webelement to show (condition = visibilityOf webelement). If not throw error.
 			try {
 				wait.until(ExpectedConditions.visibilityOf(webelement));
+				return true;
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				ExtentLogger.warning("Webelement is NOT displayed. Waiting time "+sec+" seconds."); //if not show, print to ext report
+			    return false;
 			}
 		}
-		
-	}
+}
 
 

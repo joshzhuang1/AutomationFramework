@@ -12,6 +12,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
 
@@ -90,6 +91,19 @@ public final class ExtentLogger {
 	//set skip with screenshot
 	public static void skipshot(String message) throws IOException {
 		ExtentManager.getExtentTest().skip(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+	}
+	
+	
+	//fail the test case outright
+	public static void failtest(String message) throws IOException {
+		ExtentManager.getExtentTest().skip(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		Assert.fail(message);
+	}
+	
+	//fail the test case outright with screenshot
+	public static void failtestshot(String message) throws IOException {
+		ExtentManager.getExtentTest().fail(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		Assert.fail(message);
 	}
 	
 	
