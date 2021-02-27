@@ -20,30 +20,50 @@ public class TestNGListener implements ITestListener {
 	
 	@Override
 	public void onTestStart(ITestResult result) {	
-		ExtentLogger.info("###Test case Started### --- "+result.getName());
-		System.out.println("###Test case Started### --- "+result.getName());
+		ExtentLogger.info("*** Test case execution started *** --- "+result.getName());
+		System.out.println("*** Test case execution started *** --- "+result.getName());
 	}
 	
 	@Override
 	public void onStart(ITestContext result) {	
 		
 		try {
-			ExtentLogger.info("###Execution Started### --- "+result.getName());     // ----- this happens before init Extentreport. won't work	
+			ExtentLogger.info("*** Run Started *** --- "+result.getName());     // ----- this happens before init Extentreport. won't work	
 		} catch (Exception e) {
-			System.out.println("###Execution Started### --- "+result.getName());
+			System.out.println("*** Run Started *** --- "+result.getName());
 		} 		
 	}
 	
 	@Override
 	public void onFinish(ITestContext result) {	
-		ExtentLogger.info("###Test Finished### --- "+result.getName());      // ---- this happens after Extentreport teardown. won't work
-		System.out.println("###Test Finished### --- "+result.getName());  
+		ExtentLogger.info("*** Test Completed *** --- "+result.getName());      // ---- this happens after Extentreport teardown. won't work
+		System.out.println("*** Test Completed *** --- "+result.getName());  
 	}
-	
-	public void onTestFailure(ITestContext result) {
-		ExtentLogger.fail("###Exception thrown!!!### --- ");  
-		System.out.println("###test failliiieeed!!!### --- "+result.getName()); 
-		// do stuff
+
+
+	@Override
+	public void onTestSuccess(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestFailure(ITestResult result) {
+		// TODO Auto-generated method stub
+		ExtentLogger.fail("*** Test failed due to failed validation or exception *** --- "+result.getName());  
+		System.out.println("*** Test failed due to failed validation or exception *** --- "+result.getName()); 
+	}
+
+	@Override
+	public void onTestSkipped(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
