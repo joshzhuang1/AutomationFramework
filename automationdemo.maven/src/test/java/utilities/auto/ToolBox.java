@@ -49,7 +49,7 @@ public class ToolBox {
 			//can be either local driver or remote driver
 			driver = DriverFactory.getInstance().getDriver();
 			if (Objects.isNull(driver)) {
-				driver = RmtDriverFactory.getInstance().getDriver();
+				driver = DriverFactory.getInstance().getDriver();
 			}
 				
 			WebDriverWait wait = new WebDriverWait(driver, sec); // create new WebDriverWait object. maximum time 5s 
