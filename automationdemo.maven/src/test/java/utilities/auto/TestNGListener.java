@@ -29,6 +29,7 @@ public class TestNGListener implements ITestListener {
 		System.out.println("*** Test execution started *** --- "+result.getName());
 	}
 	
+	
 	@Override
 	public void onStart(ITestContext result) {	
 		
@@ -39,6 +40,7 @@ public class TestNGListener implements ITestListener {
 		} 		
 	}
 	
+	
 	@Override
 	public void onFinish(ITestContext result) {	
 		ExtentLogger.info("*** RUN FINISH *** --- "+result.getName());      // ---- this happens after Extentreport teardown. won't work
@@ -48,23 +50,31 @@ public class TestNGListener implements ITestListener {
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		// TODO Auto-generated method stub
-		ExtentReport.syncReportResult();
+		// if extent report status is failed, also fail TestNG status. Otherwise it's a pass.
+		if (ExtentReport.isExtReportFail()) {
+			Assert.fail("Set TestNG result to fail according to extent report results"); //if this is executed, it will be directed to onTestFailure. how convenient.
+		} else {  //otherwise print PASSED in the report.
+			ExtentLogger.pass("*** Test case PASSED! *** --- "+result.getName());  
+			System.out.println("*** Test case PASSED! *** --- "+result.getName()); 
+		}
 	}
 
+	
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-		ExtentLogger.fail("*** Test failed due to failed steps or exception *** --- "+result.getName());  
-		System.out.println("*** Test failed due to failed steps or exception *** --- "+result.getName()); 
+		ExtentLogger.fail("*** Test case FAILED! Failed steps or exception *** --- "+result.getName());  
+		System.out.println("*** Test case FAILED! Failed steps or exception *** --- "+result.getName()); 
 	}
 
+	
 	@Override
 	public void onTestSkipped(ITestResult result) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub

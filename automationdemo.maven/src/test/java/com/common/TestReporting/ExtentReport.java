@@ -50,11 +50,11 @@ public class ExtentReport {
 	//tear down report and sync status
 	public static void flushReports() throws IOException {
 		extent.flush(); //write all the test logs to the report file			
-		syncReportResult(); //to fail TestNG report, if Extentreport is a fail.
+//		syncReportResult(); //to fail TestNG report, if Extentreport is a fail.
 	}
 	
 	
-	//tear down report, open report, and sync test result
+	//tear down report, launch report.
 	public static void flushReports(String foldername) throws IOException {
 		extent.flush(); //write all the test logs to the report file
 		Desktop.getDesktop().browse(new File("testreports/"+foldername+"/index.html").toURI()); //open html report at the end of the test
@@ -62,12 +62,15 @@ public class ExtentReport {
 	}
 	
 	
-	//Fail TestNG result if ExtentReport status is FAIL. Called by flushReports.
-	public static void syncReportResult() {
+	//Get status of extent report result. if fails, return true, otherwise return false.
+	public static boolean isExtReportFail() {
 		Status currentstatus = ExtentManager.getExtentTest().getStatus(); //get pass/fail status of current test
 		if (Objects.equals(currentstatus.name(), "FAIL")) { //if extentport status is fail, also fail the TestNG test. Otherwise TestNG report is still pass.
-			Assert.fail("Set TestNG result to fail according to extent report results");
-		}		
+//			Assert.fail("Set TestNG result to fail according to extent report results");
+			return true;
+		}	else {
+			return false;
+		}
 	}
 	
 }
