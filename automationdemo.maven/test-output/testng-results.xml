@@ -2,16 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="8735" started-at="2021-02-27T11:50:23 ACDT" finished-at="2021-02-27T11:50:32 ACDT">
+  <suite name="Default suite" duration-ms="17076" started-at="2021-02-27T19:03:24 ACDT" finished-at="2021-02-27T19:03:41 ACDT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="8735" started-at="2021-02-27T11:50:23 ACDT" finished-at="2021-02-27T11:50:32 ACDT">
-      <class name="seleniumgrid.testRmtDriverThreadLocal">
-        <test-method status="PASS" signature="test()[pri:0, instance:seleniumgrid.testRmtDriverThreadLocal@60285225]" name="test" duration-ms="8703" started-at="2021-02-27T11:50:23 ACDT" finished-at="2021-02-27T11:50:32 ACDT">
+    <test name="Default test" duration-ms="17076" started-at="2021-02-27T19:03:24 ACDT" finished-at="2021-02-27T19:03:41 ACDT">
+      <class name="firstpackage.ForDebugging">
+        <test-method status="PASS" signature="launchApp()[pri:0, instance:firstpackage.ForDebugging@12cdcf4]" name="launchApp" duration-ms="15599" started-at="2021-02-27T19:03:24 ACDT" finished-at="2021-02-27T19:03:40 ACDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test -->
-      </class> <!-- seleniumgrid.testRmtDriverThreadLocal -->
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="closeApp()[pri:0, instance:firstpackage.ForDebugging@12cdcf4]" name="closeApp" is-config="true" duration-ms="1440" started-at="2021-02-27T19:03:40 ACDT" finished-at="2021-02-27T19:03:41 ACDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeApp -->
+      </class> <!-- firstpackage.ForDebugging -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
