@@ -92,4 +92,33 @@ public class CommonLocators {
 		ToolBox.waitforObject(chaticon, sec);
 	}
 	
+	//log off current user
+	public void logOffToHome() throws Exception {
+		
+		//log off user
+		menubutton.click();
+		Thread.sleep(2000);
+		logout.click();
+		Thread.sleep(2000);
+		
+		//check if user already logged off
+		menubutton.click();
+		if (!ToolBox.waitforObject(logout, 3)) {
+			ExtentLogger.pass("Successfully logged off!");
+		}else {
+			ExtentLogger.failshot("User is NOT logged off!");
+		}
+		closemenu.click();
+		Thread.sleep(1000);
+		
+		//navigate to home page
+		driver.navigate().to("https://www.looka.com/");
+		Thread.sleep(2000);
+		if (ToolBox.isAlertPresent()) {
+			driver.switchTo().alert().accept();
+		}
+		
+		Thread.sleep(1000);
+	}
+	
 }

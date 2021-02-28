@@ -6,6 +6,7 @@ package utilities.auto;
 import java.util.Objects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -54,10 +55,11 @@ public class ToolBox {
 			//below Wait max. sec seconds for the webelement to show (condition = visibilityOf webelement). If not throw error.
 			try {
 				wait.until(ExpectedConditions.visibilityOf(webelement));
+				ExtentLogger.info("Webelement is displayed within "+sec+" seconds."); 
 				return true;
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				ExtentLogger.warning("Webelement is NOT displayed. Waiting time "+sec+" seconds."); //if not show, print to ext report
+				ExtentLogger.info("Webelement is NOT displayed. Waiting time "+sec+" seconds."); //if not show, print to ext report
 			    return false;
 			}
 		}
@@ -83,6 +85,21 @@ public class ToolBox {
 			    return false;
 			}
 		}
+		
+		
+		//check if alert exists
+		public static boolean isAlertPresent() {
+			WebDriver driver = DriverFactory.getInstance().getDriver(); //get current webdriver instance!!! this only works with threadlocal instance
+		    try 
+		    { 
+		        driver.switchTo().alert(); 
+		        return true; 
+		    }   // try 
+		    catch (NoAlertPresentException Ex) 
+		    { 
+		        return false; 
+		    }   // catch 
+		}   // isAlertPresent()
 		
 }
 

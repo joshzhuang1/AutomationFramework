@@ -63,33 +63,30 @@ public class LogoManagement {
 	}
 
 	
-	@Test 
+	@Test  (priority=1)
 	public void login() throws Exception {
-		//init LoginPage
+		
+		//init pages
 		LoginPage loginpage = PageFactory.initElements(ldriver, LoginPage.class);	
-		//init common page
 		CommonLocators commonlocators = PageFactory.initElements(ldriver, CommonLocators.class);	
 		
 		//login
-		loginpage.login("joshzhuangdemo@gmail.com1","K!e9R#cj4KRXQ7w");
+		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
 		
 		//check if login successful
 		commonlocators.checkUserLogin();
 	}
 	
 	
-	@Test (dependsOnMethods={"login"})
+	// (dependsOnMethods={"login"}) 
+	@Test (priority=2)
 	public void addLogoToSaved() throws Exception {
 		
-		//init common page
+		//init pages
 		CommonLocators commonlocators = PageFactory.initElements(ldriver, CommonLocators.class);	
-		//init onboarding page
 		OnboardingPage onboardingpage = PageFactory.initElements(ldriver, OnboardingPage.class);
-		//init ExplorePage page
 		ExplorePage explorepage = PageFactory.initElements(ldriver, ExplorePage.class);
-		//init EditorPage page
 		EditorPage editorpage = PageFactory.initElements(ldriver, EditorPage.class);
-		//init dashboard page
 		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
 		
 		
@@ -127,8 +124,22 @@ public class LogoManagement {
 		dashboardpage.checkSavedLogo(logoid);
 		
 		Thread.sleep(2000);
-		
-
 	}
+	
+	
+	@Test  (priority=3)
+	public void logoff() throws Exception {
+		
+		//init pages
+		CommonLocators commonlocators = PageFactory.initElements(ldriver, CommonLocators.class);	
+		LoginPage loginpage = PageFactory.initElements(ldriver, LoginPage.class);
+		
+		//log off and navigate to homepage
+		commonlocators.logOffToHome();
+		
+		//check if login button exists
+		loginpage.checkLoginLabel(5);
+	}
+	
 
 }
