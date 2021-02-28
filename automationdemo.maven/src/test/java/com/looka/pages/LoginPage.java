@@ -52,13 +52,12 @@ public class LoginPage {
 		usernamefield.sendKeys(username);
 		passwordfield.sendKeys(password);
 		Thread.sleep(1000);
-		signinbutton.click();
-		
-		if (ToolBox.waitforObject(menubutton, 8)) {
-			ExtentLogger.pass("login successfully! "+username+" : ***************");
-		}else {
-				ExtentLogger.failtestshot("login failed! see screenshot! "+username+" : ***************");
-		}
+		signinbutton.click();		
+//		if (ToolBox.waitforObject(menubutton, 8)) {
+//			ExtentLogger.pass("login successfully! "+username+" : ***************");
+//		}else {
+//				ExtentLogger.failtestshot("login failed! see screenshot! "+username+" : ***************");
+//		}
 				
 	}
 	

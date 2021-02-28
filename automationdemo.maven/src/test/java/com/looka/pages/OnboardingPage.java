@@ -3,11 +3,15 @@
  */
 package com.looka.pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
+import com.common.TestReporting.ExtentLogger;
 
 import utilities.auto.ToolBox;
 
@@ -42,13 +46,20 @@ public class OnboardingPage {
 	@FindBy(how=How.XPATH,using="//input[@name='slogan']")
 	WebElement slogan;	
 	
-	
 		
 	//Create a class constructor for HomePage Class. this is for cross browser testing. e.g. passing "Chrome".
 	public OnboardingPage(WebDriver driver) {
 		this.driver = driver;
 	}
 	
+	
+	public void checkOnboarding() throws IOException {
+		if (ToolBox.waitforObject(industryfield, 3)) {
+			ExtentLogger.pass("Landed on onboarding Page");
+		}else {
+				ExtentLogger.failshot("Did NOT land on onboarding page!");
+		}
+	}
 	
 	//On "Pick some logos you like" section: to wait until the indexed logo to show up, and select it 
 	public void selectLikedLogo(String Index) {

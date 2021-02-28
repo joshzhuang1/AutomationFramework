@@ -41,7 +41,7 @@ public class DashboardPage {
 		logogenerator.click();
 		
 		if (ToolBox.waitforObject(industrylabel, 3)) {
-			ExtentLogger.pass("Pick industry label is displayed");
+			ExtentLogger.pass("Landed on onboarding Page");
 		}else {
 				ExtentLogger.failtestshot("Pick industry label is NOT displayed!");
 		}

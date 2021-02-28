@@ -65,45 +65,82 @@ public final class ExtentLogger {
 	
 
 	//set pass with screenshot
-	public static void passshot(String message) throws IOException {
-		ExtentManager.getExtentTest().pass(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+	public static void passshot(String message){
+		try {
+			ExtentManager.getExtentTest().pass(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			ExtentManager.getExtentTest().pass(message+" --- unable to do screenshot");
+		}
 	}
 	
 	
 	//set fail with screenshot
 	public static void failshot(String message) throws IOException {
-		ExtentManager.getExtentTest().fail(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		try {
+			ExtentManager.getExtentTest().fail(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			ExtentManager.getExtentTest().fail(message+" --- unable to do screenshot");		
+		}
 	}
 	
 	
 	//set warning with screenshot
 	public static void warningshot(String message) throws IOException {
-		ExtentManager.getExtentTest().warning(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		try {
+			ExtentManager.getExtentTest().warning(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			ExtentManager.getExtentTest().warning(message+" --- unable to do screenshot");
+		}
 	}
 	
 	
 	//set info with screenshot
 	public static void infoshot(String message) throws IOException {
-		ExtentManager.getExtentTest().info(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		try {
+			ExtentManager.getExtentTest().info(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			ExtentManager.getExtentTest().info(message+" --- unable to do screenshot");
+		}
 	}
 	
 	
 	//set skip with screenshot
 	public static void skipshot(String message) throws IOException {
-		ExtentManager.getExtentTest().skip(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		try {
+			ExtentManager.getExtentTest().skip(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			ExtentManager.getExtentTest().skip(message+" --- unable to do screenshot");
+		}
 	}
 	
 	
 	//fail the test case outright
 	public static void failtest(String message) throws IOException {
-		ExtentManager.getExtentTest().skip(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
-		Assert.fail(message);
+		ExtentManager.getExtentTest().fail(message);
+		Assert.fail(message); //set testng result to fail
 	}
+	
 	
 	//fail the test case outright with screenshot
 	public static void failtestshot(String message) throws IOException {
-		ExtentManager.getExtentTest().fail(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
-		Assert.fail(message);
+		try {
+			ExtentManager.getExtentTest().fail(message,MediaEntityBuilder.createScreenCaptureFromPath(getScreenshotPath(getRandomfileName("png"))).build());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			ExtentManager.getExtentTest().fail(message+" --- unable to do screenshot");		
+		}
+		Assert.fail(message); //set testng result to fail
 	}
 	
 	
