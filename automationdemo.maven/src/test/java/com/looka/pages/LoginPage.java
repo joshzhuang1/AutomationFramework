@@ -47,6 +47,7 @@ public class LoginPage {
 	
 	//login
 	public void login(String username,String password) throws Exception {
+		ExtentLogger.info("Credential - "+username+" : ***************");
 		loginlabel.click();
 		Thread.sleep(1000);
 		usernamefield.sendKeys(username);

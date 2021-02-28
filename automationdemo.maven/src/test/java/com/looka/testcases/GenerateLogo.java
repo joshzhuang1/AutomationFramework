@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import com.common.TestReporting.ExtentReport;
 import com.looka.pages.CommonLocators;
 import com.looka.pages.DashboardPage;
+import com.looka.pages.ExplorePage;
 import com.looka.pages.LoginPage;
 import com.looka.pages.OnboardingPage;
 
@@ -69,21 +70,35 @@ public class GenerateLogo {
 		//login
 		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
 		
+		
 		//init LoginPage
 		CommonLocators commonlocators = PageFactory.initElements(ldriver, CommonLocators.class);		
+		
+		//check if login successful
 		commonlocators.checkUserLogin();
 		
-		//init DashboardPage
-		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
-		
 		//navigate to logo generator
-		dashboardpage.navigateToGenerator();
+		commonlocators.navigateToGenerator();
 		
 		//init onboarding page
 		OnboardingPage onboardingpage = PageFactory.initElements(ldriver, OnboardingPage.class);
 		
+		//check if user landed to onboarding page successfully
+		onboardingpage.checkOnboarding();
+		
 		//generate a logo
 		onboardingpage.generateLogo();
+		
+		//init ExplorePage page
+		ExplorePage explorepage = PageFactory.initElements(ldriver, ExplorePage.class);
+		
+		//check if logos are being generated within x seconds
+		explorepage.checkLogoGenerating(3);
+		
+		//check if logos are generated within x seconds
+		explorepage.checkGeneratedLogos(12);
+		
+		Thread.sleep(2000);
 	}
 
 }

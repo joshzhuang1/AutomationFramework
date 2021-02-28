@@ -68,17 +68,7 @@ public class ForDebugging {
 		//login
 		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
 		
-		//init DashboardPage
-		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
-		
-		//navigate to logo generator
-		dashboardpage.navigateToGenerator();
-		
-		//init onboarding page
-		OnboardingPage onboardingpage = PageFactory.initElements(ldriver, OnboardingPage.class);
-		
-		//generate a logo
-		onboardingpage.generateLogo();
+		Thread.sleep(2000);	
 	}
 
 }

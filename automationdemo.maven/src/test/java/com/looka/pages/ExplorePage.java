@@ -8,6 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import com.common.TestReporting.ExtentLogger;
+
+import utilities.auto.ToolBox;
+
 /**
  * @author JoshZhuang
  *
@@ -27,6 +31,23 @@ public class ExplorePage {
 	public ExplorePage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	public void checkLogoGenerating(int sec) {
+		if (ToolBox.waitforObject(generatinglogo, sec)) {
+			ExtentLogger.info("Generating logos in progress");
+		}else {
+				ExtentLogger.failshot("Not generating logos! Check screenshot!");
+		}
+	}
+	
+	public void checkGeneratedLogos(int sec) {
+		if (ToolBox.waitforObject(picklogo, sec)) {
+			ExtentLogger.pass("Logos are generated as expected!");
+		}else {
+				ExtentLogger.failshot("Logos are not generated yet! Check screenshot!");
+		}
+	}
+	
 	
 	
 }

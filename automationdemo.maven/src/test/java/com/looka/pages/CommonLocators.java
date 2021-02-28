@@ -24,6 +24,10 @@ public class CommonLocators {
 	@FindBy(how=How.XPATH,using="//i[text()='menu']")
 	WebElement menubutton;
 	
+	@FindBy(how=How.XPATH,using="//i[text()='close']")
+	WebElement closemenu;
+	//i[text()='close']
+	
 	@FindBy(how=How.XPATH,using="//span[@class='css-25shwt']")
 	WebElement usernamelabel;
 	
@@ -32,6 +36,11 @@ public class CommonLocators {
 	
 	@FindBy(how=How.XPATH,using="//p[text()='Logo Generator']")
 	WebElement logogenerator;
+	
+	@FindBy(how=How.XPATH,using="//p[text()='Saved logos']")
+	WebElement savedlogos;
+	
+	
 	
 	
 	//Create a class constructor for HomePage Class. this is for cross browser testing. e.g. passing "Chrome".
@@ -42,8 +51,10 @@ public class CommonLocators {
 	//check if user is logged in. return true or false
 	public boolean checkUserLogin() throws Exception {	
 		if (ToolBox.waitforObject(menubutton, 8)) {
-			if (ToolBox.waitforObject(logout, 2)) {
+			menubutton.click();
+			if (ToolBox.waitforObject(logout, 3)) {
 				ExtentLogger.pass("user login successful!");
+				closemenu.click();
 				return true;
 			} else {
 				ExtentLogger.failtestshot("user is NOT logged in!");
@@ -62,12 +73,14 @@ public class CommonLocators {
 		menubutton.click();
 		Thread.sleep(1000);
 		logogenerator.click();
-		
-//		if (ToolBox.waitforObject(industrylabel, 3)) {
-//			ExtentLogger.pass("Landed on onboarding Page");
-//		}else {
-//				ExtentLogger.failtestshot("Pick industry label is NOT displayed!");
-//		}
+	}
+	
+	
+	//navigate to savedlogos
+	public void navigateToSavedlogos() throws Exception {
+		menubutton.click();
+		Thread.sleep(1000);
+		savedlogos.click();
 	}
 	
 }

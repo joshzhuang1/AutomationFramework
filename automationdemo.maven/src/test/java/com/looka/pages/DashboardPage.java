@@ -34,19 +34,7 @@ public class DashboardPage {
 	public DashboardPage(WebDriver driver) {
 		this.driver = driver;
 	}
-	
-	public void navigateToGenerator() throws Exception {
-		menubutton.click();
-		Thread.sleep(1000);
-		logogenerator.click();
+
 		
-		if (ToolBox.waitforObject(industrylabel, 3)) {
-			ExtentLogger.pass("Landed on onboarding Page");
-		}else {
-				ExtentLogger.failtestshot("Pick industry label is NOT displayed!");
-		}
-	}
-	
-	
 	
 }
