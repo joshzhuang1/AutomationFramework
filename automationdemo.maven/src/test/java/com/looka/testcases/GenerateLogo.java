@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import com.common.TestReporting.ExtentReport;
 import com.looka.pages.CommonLocators;
 import com.looka.pages.DashboardPage;
+import com.looka.pages.EditorPage;
 import com.looka.pages.ExplorePage;
 import com.looka.pages.LoginPage;
 import com.looka.pages.OnboardingPage;
@@ -55,7 +56,7 @@ public class GenerateLogo {
 	
 	
 	@Test
-	public void addLogoToFaviourite() throws Exception {
+	public void addLogoToSaved() throws Exception {
 		ldriver = BrowserFactory.initBrowser(browsername); //init threadlocal instance - recommended!
 		Thread.sleep(2000);	
 //		ExtentReport.createTestReport(reportfolder, reportfolder); //init extent report
@@ -99,6 +100,30 @@ public class GenerateLogo {
 		explorepage.checkGeneratedLogos(12);
 		
 		Thread.sleep(2000);
+		
+		//select 3rd photo to save
+		explorepage.selectSavedLogo(3);
+		
+		
+		//init EditorPage page
+		EditorPage editorpage = PageFactory.initElements(ldriver, EditorPage.class);
+		String logoid = editorpage.getCurrentLogoID();
+		
+		//navigate to dashboard page
+		commonlocators.navigateToSavedlogos();
+		
+		
+		//init dashboard page
+		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
+
+
+		//Check if logo with specific ID is displayed
+		dashboardpage.checkSavedLogo(logoid);
+		
+		Thread.sleep(2000);
+		
+		
+		
 	}
 
 }

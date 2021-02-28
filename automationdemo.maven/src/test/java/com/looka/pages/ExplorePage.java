@@ -3,6 +3,7 @@
  */
 package com.looka.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,8 +36,10 @@ public class ExplorePage {
 	public void checkLogoGenerating(int sec) {
 		if (ToolBox.waitforObject(generatinglogo, sec)) {
 			ExtentLogger.info("Generating logos in progress");
+		}else if(ToolBox.waitforObject(picklogo, 2)){
+			ExtentLogger.info("logos are already generated!");
 		}else {
-				ExtentLogger.failshot("Not generating logos! Check screenshot!");
+			ExtentLogger.failshot("Not generating logos! Check screenshot!");
 		}
 	}
 	
@@ -48,6 +51,11 @@ public class ExplorePage {
 		}
 	}
 	
+	public void selectSavedLogo(int index) {
+		WebElement logo = this.driver.findElement(By.xpath("//span[@class='css-j5zjwc']/div["+index+"]"));
+		ToolBox.waitforObject(logo, 8); //the logos take some time to show up
+		logo.click();
+	}
 	
 	
 }

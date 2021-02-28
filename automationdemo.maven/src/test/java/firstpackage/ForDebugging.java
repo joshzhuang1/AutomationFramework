@@ -54,6 +54,14 @@ public class ForDebugging {
 	
 	@Test
 	public void addLogoToFaviourite() throws Exception {
+		
+		
+
+//			String url = "https://looka.com/editor/62208209";
+//			String logoid = url.replaceAll("\\D+",""); // this is to get rid of all non-digits. so "https://looka.com/editor/62208209" becomes "62208209"
+			
+	
+		
 		ldriver = BrowserFactory.initBrowser(browsername); //init threadlocal instance - recommended!
 		Thread.sleep(2000);	
 //		ExtentReport.createTestReport(reportfolder, reportfolder); //init extent report

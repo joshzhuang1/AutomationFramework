@@ -63,6 +63,12 @@ public class TestNGListener implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
+		
+	   if (null != result.getThrowable()) {       
+		      String msg = result.getThrowable().getMessage(); //get any messages of exception that caused fail. this is GOLD!!!
+		      ExtentLogger.fail(msg);
+		    }
+		
 		ExtentLogger.fail("*** Test case FAILED! Failed steps or exception *** --- "+result.getName());  
 		System.out.println("*** Test case FAILED! Failed steps or exception *** --- "+result.getName()); 
 	}

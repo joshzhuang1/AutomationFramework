@@ -62,8 +62,8 @@ public class OnboardingPage {
 	}
 	
 	//On "Pick some logos you like" section: to wait until the indexed logo to show up, and select it 
-	public void selectLikedLogo(String Index) {
-		WebElement logo = this.driver.findElement(By.xpath("//div[@class='css-of0vry css-1smao10 css-k008qs css-1jkp9i7']/div["+Index+"]"));
+	public void selectLikedLogo(String index) {
+		WebElement logo = this.driver.findElement(By.xpath("//div[@class='css-of0vry css-1smao10 css-k008qs css-1jkp9i7']/div["+index+"]"));
 		ToolBox.waitforObject(logo, 5); //the logos take some time to show up
 		logo.click();
 	}
