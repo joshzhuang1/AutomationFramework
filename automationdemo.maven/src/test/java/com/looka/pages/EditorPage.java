@@ -38,11 +38,11 @@ public class EditorPage {
 	
 	//to get the id of the logo currently being editted
 	public String getCurrentLogoID() {
-		ToolBox.waitforObject(download, 5); //wait until page is loaded
+		ToolBox.waitforObject(download, 6); //wait until page is loaded
 		
 		String url = driver.getCurrentUrl(); //ID is in url string
 		String logoid = url.replaceAll("\\D+",""); // this is to get rid of all non-digits. so "https://looka.com/editor/62208209" becomes "62208209"
-		ExtentLogger.info("Current logo ID is: "+logoid); //log the ID
+		ExtentLogger.infoshot("Logo saved. ID = "+logoid); //log the ID
 		return logoid;
 	}
 }

@@ -52,7 +52,7 @@ public class TestNGListener implements ITestListener {
 	public void onTestSuccess(ITestResult result) {
 		// if extent report status is failed, also fail TestNG status. Otherwise it's a pass.
 		if (ExtentReport.isExtReportFail()) {
-			Assert.fail("Set TestNG result to fail according to extent report results"); //if this is executed, it will be directed to onTestFailure. how convenient.
+			Assert.fail("Set test result to FAIL due to failed steps"); //if this is executed, it will be directed to onTestFailure. how convenient.
 		} else {  //otherwise print PASSED in the report.
 			ExtentLogger.pass("*** Test case PASSED! *** --- "+result.getName());  
 			System.out.println("*** Test case PASSED! *** --- "+result.getName()); 
@@ -64,8 +64,9 @@ public class TestNGListener implements ITestListener {
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
 		
+		//get any exception messages that caused fail. this is GOLD!!!
 	   if (null != result.getThrowable()) {       
-		      String msg = result.getThrowable().getMessage(); //get any messages of exception that caused fail. this is GOLD!!!
+		      String msg = result.getThrowable().getMessage(); 
 		      ExtentLogger.fail(msg);
 		    }
 		

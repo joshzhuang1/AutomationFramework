@@ -6,6 +6,7 @@ package com.looka.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -53,8 +54,15 @@ public class ExplorePage {
 	
 	public void selectSavedLogo(int index) {
 		WebElement logo = this.driver.findElement(By.xpath("//span[@class='css-j5zjwc']/div["+index+"]"));
-		ToolBox.waitforObject(logo, 8); //the logos take some time to show up
-		logo.click();
+//		WebElement logo = this.driver.findElement(By.xpath("//span[@class='css-j5zjwc']/div["+index+"]/div[@class='css-of0vry css-1rkhyuy css-k008qs']"));
+		ToolBox.waitforObject(logo, 10); //the logos take some time to show up
+		
+		//try javascript!
+		Actions actions = new Actions(driver);
+		actions.moveToElement(logo).click().perform();
+		
+		
+//		logo.click();
 	}
 	
 	

@@ -24,19 +24,26 @@ public class DashboardPage {
 	@FindBy(how=How.XPATH,using="//h2[text()='Saved Logos']")
 	WebElement savedlogosheading;
 	
+	@FindBy(how=How.XPATH,using="//button[@class='css-emh0r7']")
+	WebElement loadingicon;
+	//button[@class="css-emh0r7"]
+	
+	
 	
 	//Create a class constructor for HomePage Class. this is for cross browser testing. e.g. passing "Chrome".
 	public DashboardPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
+	
 	public void checkSavedLogo(String logoid) {
-		ToolBox.waitforObject(savedlogosheading, 5); //wait for abit until the page is fully loaded
-		
-		WebElement logo = this.driver.findElement(By.xpath("//a[@href='/editor/"+logoid+"']"));
-		if (ToolBox.waitforObject(logo, 5)) {
-			ExtentLogger.pass("Saved logo is found: ID = "+logoid);
-		}else {
+		ToolBox.waitforObject(savedlogosheading, 5);
+		try {
+			WebElement logo = this.driver.findElement(By.xpath("//a[@href='/editor/"+logoid+"']")); //if this webelement doesn't exist, exception will be thrown.
+			ExtentLogger.passshot("Saved logo is found. ID = "+logoid);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 			ExtentLogger.failshot("Unable to find saved logo! ID = "+logoid);
 		}
 	}

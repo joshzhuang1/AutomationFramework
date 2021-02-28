@@ -42,15 +42,13 @@ public class ToolBox {
 		    }	
 		
 		
+		
 		//explicit wait for a webelement to show up within x seconds,if not shown, print info, return false. otherwise return true
 		public static boolean waitforObject(WebElement webelement, int sec) {
 			WebDriver driver;
 			
 			//can be either local driver or remote driver
 			driver = DriverFactory.getInstance().getDriver();
-			if (Objects.isNull(driver)) {
-				driver = DriverFactory.getInstance().getDriver();
-			}
 				
 			WebDriverWait wait = new WebDriverWait(driver, sec); // create new WebDriverWait object. maximum time 5s 
 			//below Wait max. sec seconds for the webelement to show (condition = visibilityOf webelement). If not throw error.
@@ -63,6 +61,29 @@ public class ToolBox {
 			    return false;
 			}
 		}
+		
+		
+		
+		//explicit wait for a webelement to disappear within x seconds,if still shows, print info, return false. otherwise return true
+		public static boolean waitforDisappear(WebElement webelement, int sec) {
+			WebDriver driver;
+			
+			//can be either local driver or remote driver
+			driver = DriverFactory.getInstance().getDriver();
+				
+			WebDriverWait wait = new WebDriverWait(driver, sec); // create new WebDriverWait object. maximum time 5s 
+			
+			//below Wait max. sec seconds for the webelement to disappear
+			try {
+				wait.until(ExpectedConditions.invisibilityOf(webelement));
+				return true;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				ExtentLogger.warning("Webelement not disappeared! Waiting time "+sec+" seconds."); //if not show, print to ext report
+			    return false;
+			}
+		}
+		
 }
 
 

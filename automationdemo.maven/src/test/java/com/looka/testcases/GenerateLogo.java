@@ -72,7 +72,7 @@ public class GenerateLogo {
 		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
 		
 		
-		//init LoginPage
+		//init common page
 		CommonLocators commonlocators = PageFactory.initElements(ldriver, CommonLocators.class);		
 		
 		//check if login successful
@@ -99,24 +99,29 @@ public class GenerateLogo {
 		//check if logos are generated within x seconds
 		explorepage.checkGeneratedLogos(12);
 		
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		
-		//select 3rd photo to save
-		explorepage.selectSavedLogo(3);
+		//select a photo to save
+		explorepage.selectSavedLogo(2);
 		
 		
 		//init EditorPage page
 		EditorPage editorpage = PageFactory.initElements(ldriver, EditorPage.class);
+		
+		//get logo id from editor page url
 		String logoid = editorpage.getCurrentLogoID();
+		Thread.sleep(5000);
 		
 		//navigate to dashboard page
 		commonlocators.navigateToSavedlogos();
+		Thread.sleep(4000);
 		
+		//wait a bit for page loading until chat icon shows
+		commonlocators.waitForChatIcon(5);
 		
 		//init dashboard page
 		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
-
-
+		
 		//Check if logo with specific ID is displayed
 		dashboardpage.checkSavedLogo(logoid);
 		

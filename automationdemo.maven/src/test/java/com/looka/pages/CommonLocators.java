@@ -40,6 +40,9 @@ public class CommonLocators {
 	@FindBy(how=How.XPATH,using="//p[text()='Saved logos']")
 	WebElement savedlogos;
 	
+	@FindBy(how=How.XPATH,using="//div[@aria-label='Open Intercom Messenger']")
+	WebElement chaticon;
+	
 	
 	
 	
@@ -79,8 +82,14 @@ public class CommonLocators {
 	//navigate to savedlogos
 	public void navigateToSavedlogos() throws Exception {
 		menubutton.click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		savedlogos.click();
+	}
+	
+	
+	//wait until chaticon shows
+	public void waitForChatIcon(int sec) {
+		ToolBox.waitforObject(chaticon, sec);
 	}
 	
 }

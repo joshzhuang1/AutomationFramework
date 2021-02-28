@@ -3,10 +3,15 @@
  */
 package firstpackage;
 
+import static org.testng.Assert.fail;
+
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -19,6 +24,7 @@ import com.looka.pages.OnboardingPage;
 
 import utilities.auto.BrowserFactory;
 import utilities.auto.DriverFactory;
+import utilities.auto.ToolBox;
 
 /**
  * @author JoshZhuang
@@ -54,11 +60,6 @@ public class ForDebugging {
 	
 	@Test
 	public void addLogoToFaviourite() throws Exception {
-		
-		
-
-//			String url = "https://looka.com/editor/62208209";
-//			String logoid = url.replaceAll("\\D+",""); // this is to get rid of all non-digits. so "https://looka.com/editor/62208209" becomes "62208209"
 			
 	
 		
@@ -76,7 +77,20 @@ public class ForDebugging {
 		//login
 		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
 		
-		Thread.sleep(2000);	
+		//init dashboard page
+		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
+		
+		Thread.sleep(1000);	
+		Assert.fail();
+		
+		
+		
+		WebElement logo = this.ldriver.findElement(By.xpath("//span[@class='css-1f3l2gp']/div[3]"));
+		ToolBox.waitforObject(logo, 8); //the logos take some time to show up
+		logo.click();
+		
+		Thread.sleep(1000);
+		
 	}
 
 }
