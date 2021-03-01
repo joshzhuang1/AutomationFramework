@@ -56,7 +56,7 @@ public class ToolBox {
 			//below Wait max. sec seconds for the webelement to show (condition = visibilityOf webelement). If not throw error.
 			try {
 				wait.until(ExpectedConditions.visibilityOf(webelement));
-				ExtentLogger.info("Webelement is displayed within "+sec+" seconds."); 
+//				ExtentLogger.info("Webelement is displayed within "+sec+" seconds."); 
 				return true;
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
