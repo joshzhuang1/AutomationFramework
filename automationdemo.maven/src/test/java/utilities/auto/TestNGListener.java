@@ -67,7 +67,9 @@ public class TestNGListener implements ITestListener {
 		//get any exception messages that caused fail. this is GOLD!!!
 	   if (null != result.getThrowable()) {       
 		      String msg = result.getThrowable().getMessage(); 
-		      ExtentLogger.fail("*** OnFail Listener Message *** --- "+msg);
+		      if (!msg.equals("null")) {  //only print to ext report when msg is not "null" string
+		    	  ExtentLogger.fail("*** OnFail Listener Message *** --- "+msg);
+		      }
 		    }
 		
 		ExtentLogger.fail("*** Test case FAILED! Failed steps or exception *** --- "+result.getName());  

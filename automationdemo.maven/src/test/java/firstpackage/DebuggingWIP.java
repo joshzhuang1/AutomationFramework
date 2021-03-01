@@ -33,7 +33,7 @@ import utilities.auto.ToolBox;
 
 @Listeners(utilities.auto.TestNGListener.class)
 
-public class ForDebugging {
+public class DebuggingWIP {
 	WebDriver ldriver;
 	String reportfolder = "Lookatests";
 	String testcasename = "Lookatests";
@@ -73,15 +73,23 @@ public class ForDebugging {
 		
 		//init LoginPage
 		LoginPage loginpage = PageFactory.initElements(ldriver, LoginPage.class);	
-		
-		//login
-		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
-		
 		//init dashboard page
 		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
 		
+		//login
+		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
+		dashboardpage.waitingLoadingIcon(20);
+		
+		Assert.fail("END of testing#$D");
+		Thread.sleep(15000);
+		
+		
+		
+
+
+		dashboardpage.deleteLogoByIndex("16");
 		Thread.sleep(1000);	
-		Assert.fail();
+//		Assert.assertTrue(true);
 		
 		
 		

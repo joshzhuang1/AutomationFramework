@@ -5,7 +5,6 @@ package utilities.auto;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -23,7 +22,7 @@ public class DataManager {
 
 	XSSFWorkbook inputworkbook; 
 	XSSFSheet inputsheet;
-//	String checkval;
+
 	//construtor!!! to init datatable
 	public DataManager(String excelPath,String sheetName) {
 		
@@ -99,17 +98,17 @@ public class DataManager {
 	
 	//export data to xlsx workbook
 	public void exportData(Object[][] data, String excelPath) throws IOException {
-		int rowindex = inputsheet.getLastRowNum()+1; // get total # of rows with data. getLastRowNum actually starts from 0, so need to +1
-		int colindex = inputsheet.getRow(0).getLastCellNum(); //get # of cols      
-        
-		for (int i=0; i < rowindex; i++) {
+ 
+		int rowcount = data.length;  //row count of input data
+		int colcount = data[0].length;   //column count of input data
+		
+		for (int i=0; i < rowcount; i++) {
 			Row row = inputsheet.createRow(i); //create row object for the sheet
-			for (int j=0; j<colindex; j++) {
-					Cell cell = row.createCell(j);  //for each row, create cells on j
+			for (int j = 0; j < colcount; j++) {
+					Cell cell = row.createCell(j);  //for rows, create cells on each nj
 					cell.setCellValue((String)data[i][j]);
 				}
-			}			
-		
+			}					
 		//save to excel sheet
 		FileOutputStream fos = new FileOutputStream(excelPath);
 		inputworkbook.write(fos);

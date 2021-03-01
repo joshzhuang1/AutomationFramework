@@ -24,12 +24,16 @@ public class ReadDatatableDemo {
 	static String inputdata = "testdata/dataEXP.xlsx";
 	
 	public static void main(String[] args) throws IOException {
-//		DataManager inputsheet = new DataManager("C:\\Users\\zhuaj1\\OneDrive - SA Power Networks\\_JoshWork\\dataEXP.xlsx","Sheet1");
+
+		//import data from excel
 		DataManager inputsheet = new DataManager(inputdata,"Sheet1");
+		
+		//2D array to accept data from excel
 		Object data[][] = inputsheet.getTestData();
 		
 		
 	    data[2][3] = ToolBox.getRandomNum(8);
+	    data[3][4] = ToolBox.getRandomNum(5);
 		
 		int rowNum = inputsheet.getRowCount();
 		
@@ -43,6 +47,7 @@ public class ReadDatatableDemo {
 			System.out.println(companyname+" "+slogan+" "+colour+" "+logoid+" "+price);
 		}
 
+		//export data to exel
 		inputsheet.exportData(data,inputdata);
 		
 //		System.out.println("sthdddd");
