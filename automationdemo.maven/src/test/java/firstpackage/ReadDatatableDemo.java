@@ -3,9 +3,12 @@
  */
 package firstpackage;
 
+import java.io.IOException;
+
 import org.testng.annotations.DataProvider;
 
-import utilities.auto.ExcelDataConfig;
+import utilities.auto.DataManager;
+
 
 /**
  * @author JoshZhuang
@@ -19,17 +22,17 @@ public class ReadDatatableDemo {
 
 	
 	
-	public static void main(String[] args) {
-		ExcelDataConfig inputsheet = new ExcelDataConfig("testdata/dataEXP.xlsx","Sheet1");
-		int rowcount = inputsheet.getRowCount();
+	public static void main(String[] args) throws IOException {
+		DataManager inputsheet = new DataManager("C:\\Users\\zhuaj1\\OneDrive - SA Power Networks\\_JoshWork\\dataEXP.xlsx","Sheet1");
 		
-		for (int i=1; i<=rowcount; i++) {
-			System.out.println(inputsheet.getData(i, 0));
-			System.out.println(inputsheet.getData(i, 1));
-			System.out.println(inputsheet.getData(i, 2));
-			System.out.println(inputsheet.getData(i, 3));
-		}
+		Object data[][] = inputsheet.getTestData();
 		
-		inputsheet.close();
+		data[3][3] = "new---logo";
+		data[1][4] = "255";
+		
+//		inputsheet.exportData("testdata/dataEXP.xlsx");
+		inputsheet.exportData(data,"C:\\Users\\zhuaj1\\OneDrive - SA Power Networks\\_JoshWork\\dataEXP.xlsx");
+		
+		System.out.println("sthdddd");
 	}
 }
