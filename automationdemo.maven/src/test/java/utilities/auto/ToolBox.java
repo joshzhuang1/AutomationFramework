@@ -4,6 +4,7 @@
 package utilities.auto;
 
 import java.util.Objects;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
@@ -100,6 +101,16 @@ public class ToolBox {
 		        return false; 
 		    }   // catch 
 		}   // isAlertPresent()
+		
+		
+		//get random numbers
+		public static String getRandomNum(int digCount) {
+			Random rnd = new Random();
+			StringBuilder sb = new StringBuilder(digCount);
+		    for(int i=0; i < digCount; i++)
+		        sb.append((char)('0' + rnd.nextInt(10)));
+		    return sb.toString();
+		}
 		
 }
 
