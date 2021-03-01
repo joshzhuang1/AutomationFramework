@@ -20,7 +20,7 @@ public class ReadDatatableDemo {
 	
 	
 	public static void main(String[] args) {
-		ExcelDataConfig inputsheet = new ExcelDataConfig("datatable/CalcInput.xlsx","Sheet1");
+		ExcelDataConfig inputsheet = new ExcelDataConfig("testdata/dataEXP.xlsx","Sheet1");
 		int rowcount = inputsheet.getRowCount();
 		
 		for (int i=1; i<=rowcount; i++) {
