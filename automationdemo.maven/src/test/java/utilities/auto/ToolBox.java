@@ -60,7 +60,7 @@ public class ToolBox {
 				return true;
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				ExtentLogger.info("Webelement is NOT displayed. Waiting time "+sec+" seconds."); //if not show, print to ext report
+//				ExtentLogger.info("Webelement is NOT displayed. Waiting time "+sec+" seconds."); //if not show, print to ext report
 			    return false;
 			}
 		}
@@ -80,7 +80,7 @@ public class ToolBox {
 //				ExtentLogger.info("Webelement is displayed within "+sec+" seconds."); 
 				return true;
 			} catch (Exception e) {
-				ExtentLogger.info("Webelement is NOT displayed. Waiting time "+sec+" seconds."); //if not show, print to ext report
+//				ExtentLogger.info("Webelement is NOT displayed. Waiting time "+sec+" seconds."); //if not show, print to ext report
 			    return false;
 			}
 		}

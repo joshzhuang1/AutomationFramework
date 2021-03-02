@@ -44,7 +44,7 @@ public class OnboardingPage {
 	WebElement companyname;	
 	
 	@FindBy(how=How.XPATH,using="//input[@name='slogan']")
-	WebElement slogan;	
+	WebElement sloganfield;	
 	
 		
 	//Create a class constructor for HomePage Class. this is for cross browser testing. e.g. passing "Chrome".
@@ -78,8 +78,8 @@ public class OnboardingPage {
 	
 	
 	//generate a logo using wizard
-	public void generateLogo() throws Exception {
-		industryfield.sendKeys("Restaurant");
+	public void generateLogo(String industry, String color, String compayname, String slogan) throws Exception {
+		industryfield.sendKeys(industry);
 		continuebutton.click();
 		Thread.sleep(5000);
 
@@ -91,14 +91,14 @@ public class OnboardingPage {
 		Thread.sleep(1500);
 		
 		//select color
-		selectColor("Pink");
+		selectColor(color);
 		Thread.sleep(1500);
 		continuebutton.click();
 		Thread.sleep(1500);
 		
 		//enter company name and slogan
-		companyname.sendKeys("SSSELE");
-		slogan.sendKeys("Love & Peace");
+		companyname.sendKeys(compayname);
+		sloganfield.sendKeys(slogan);
 		Thread.sleep(1500);
 		continuebutton.click();
 		Thread.sleep(1500);

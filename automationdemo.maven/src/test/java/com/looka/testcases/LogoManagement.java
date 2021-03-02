@@ -9,9 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.common.TestReporting.ExtentLogger;
 import com.common.TestReporting.ExtentReport;
 import com.looka.pages.CommonLocators;
 import com.looka.pages.DashboardPage;
@@ -22,6 +24,7 @@ import com.looka.pages.OnboardingPage;
 
 import utilities.auto.BrowserFactory;
 import utilities.auto.DriverFactory;
+import utilities.auto.ExcelDataConfig;
 
 /**
  * @author JoshZhuang
@@ -36,6 +39,35 @@ public class LogoManagement {
 	String testcasename = "Lookatests";
 	String browsername = "chrome";
 	String url = "https://www.looka.com/";
+	
+	
+	//data input
+	String wbname = "testdata/manageLogo.xlsx";
+	String stname1 = "logindetails";
+	String stname2 = "logodetails";
+	String stname3 = "logoindex";
+
+	
+	@DataProvider(name = "logindata")
+	public Object[][] passData1() {  //return 2-dim array 
+		ExcelDataConfig inputsheet = new ExcelDataConfig(wbname,stname1);
+		Object data[][] = inputsheet.getTestData();
+		return data;
+	}
+	
+	@DataProvider(name = "logodata")
+	public Object[][] passData2() {  //return 2-dim array 
+		ExcelDataConfig inputsheet = new ExcelDataConfig(wbname,stname2);
+		Object data[][] = inputsheet.getTestData();
+		return data;
+	}
+	
+	@DataProvider(name = "deletelogo")
+	public Object[][] passData3() {  //return 2-dim array 
+		ExcelDataConfig inputsheet = new ExcelDataConfig(wbname,stname3);
+		Object data[][] = inputsheet.getTestData();
+		return data;
+	}
 	
 	
 	@BeforeClass // init extreport
@@ -63,26 +95,30 @@ public class LogoManagement {
 	}
 
 	
-	@Test  (priority=1)
-	//log in
-	public void login() throws Exception {
-		
-		//init pages
+	@Test (priority=1, dataProvider ="logindata")
+	public void login(String uname, String pword) throws Exception {
+				//init pages
 		LoginPage loginpage = PageFactory.initElements(ldriver, LoginPage.class);	
 		CommonLocators commonlocators = PageFactory.initElements(ldriver, CommonLocators.class);	
-		
+		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
 		//login
-		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
+		loginpage.login(uname,pword);
 		
 		//check if login successful
 		commonlocators.checkUserLogin();
+		
+		//wait for all logos to be loaded
+		dashboardpage.waitlogoloading(30);
 	}
 	
 	
 	// (dependsOnMethods={"login"}) 
-	@Test (priority=2)
+	@Test (priority=2, dataProvider ="logodata")
 	//generate some logos and save one of them to fav
-	public void addLogoToSaved() throws Exception {
+	public void addLogoToSaved(String industry, String color, String compayname, String slogan) throws Exception {
+		
+		//print test data info in report
+		ExtentLogger.info("***TEST DATA*** industry "+industry+", color "+color+", compayname "+compayname+", slogan "+slogan);
 		
 		//init pages
 		CommonLocators commonlocators = PageFactory.initElements(ldriver, CommonLocators.class);	
@@ -90,10 +126,7 @@ public class LogoManagement {
 		ExplorePage explorepage = PageFactory.initElements(ldriver, ExplorePage.class);
 		EditorPage editorpage = PageFactory.initElements(ldriver, EditorPage.class);
 		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
-		
-		//wait for all logos to be loaded
-		dashboardpage.waitlogoloading(30);
-		
+				
 		//navigate to logo generator
 		commonlocators.navigateToGenerator();
 		
@@ -101,7 +134,7 @@ public class LogoManagement {
 		onboardingpage.checkOnboarding();
 		
 		//generate a logo
-		onboardingpage.generateLogo();
+		onboardingpage.generateLogo(industry,color,compayname,slogan);
 		
 		//check if logos are being generated within x seconds
 		explorepage.checkLogoGenerating(3);
@@ -131,14 +164,22 @@ public class LogoManagement {
 		Thread.sleep(2000);
 	}
 	
-	@Test (priority=3)
+	@Test (priority=3, dataProvider ="deletelogo")
 	// To delete a saved logo
-	public void deleteLogo() throws Exception {
-		ldriver.navigate().refresh(); // there is a bug here. if don't refresh page confirm delete button wouldn't work
+	public void deleteLogo(String Index) throws Exception {
+		//print test data info in report
+		ExtentLogger.info("***TEST DATA*** to delete logo #"+Index);
+		//init pages
 		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
+		
+		ldriver.navigate().refresh(); // there is a bug here. if don't refresh page confirm delete button wouldn't work
+		
+		//wait for all logos to be loaded
+		dashboardpage.waitlogoloading(30);
+		
 		//wait for all logos to be loaded
 		dashboardpage.waitlogoloading(2);
-		dashboardpage.deleteLogoByIndex("1");
+		dashboardpage.deleteLogoByIndex(Index);
 	}
 	
 	@Test  (priority=4)

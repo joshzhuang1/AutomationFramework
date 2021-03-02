@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.Assert;
 
 /**
  * @author JoshZhuang
@@ -67,6 +68,10 @@ public class ExcelDataConfig {
 		int rowindex = inputsheet.getLastRowNum(); // get rowindex = # of rows with data (excluding header)
 		int colindex = inputsheet.getRow(0).getLastCellNum(); //get # of cols 
 		Object[][] data = new Object[rowindex][colindex]; // 2-dim array
+		
+		if (rowindex < 1) {
+			Assert.fail("############## No data found from input sheet. please check source file! #################");
+		}
 		
 		for (int i=0; i<rowindex; i++) {
 			for (int j=0; j<colindex; j++) {
