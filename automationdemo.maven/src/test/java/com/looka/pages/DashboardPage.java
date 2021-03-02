@@ -31,6 +31,9 @@ public class DashboardPage {
 	@FindBy(how=How.XPATH,using="//button[text()='Confirm']")
 	WebElement confirmdelete;
 	
+	@FindBy(how=How.XPATH,using="//span[@class='css-1f3l2gp']/div[1]")
+	WebElement firstlogo;
+	
 	
 	//Create a class constructor for HomePage Class. this is for cross browser testing. e.g. passing "Chrome".
 	public DashboardPage(WebDriver driver) {
@@ -112,12 +115,35 @@ public class DashboardPage {
 	}
 	
 	
-	public void waitingLoadingIcon(int sec) {
-		ToolBox.waitforObject(loadingicon, 8);
-		ToolBox.waitforDisappear(loadingicon, sec);
+	//wait for all logos to be loaded on dashboard page - max number applied
+	//for first logo, waiting 12s as it's taking longer, for subsequent logo, waiting 5s max each
+	//if no more logo is loaded, return
+	public int waitlogoloading(int maxnumber) {
+
+		boolean isloaded; //flag to check if next logo is loaded
+		int logocount = 0;
+		for (int i = 1; i <= maxnumber; i++) {
+			if (i==1) {
+				isloaded = ToolBox.waitforObject(By.xpath("//span[@class='css-1f3l2gp']/div["+i+"]"), 12);
+			}else {
+				isloaded = ToolBox.waitforObject(By.xpath("//span[@class='css-1f3l2gp']/div["+i+"]"), 5);
+			}
+			
+			//if image is not loaded, exit loop, return how many logos are loaded
+			if (!isloaded) {
+				ExtentLogger.info((i-1)+" logos have been loaded!");
+				logocount = i-1;
+				return logocount;
+			}
+			
+			if (i == maxnumber) {
+				ExtentLogger.info(i+" or more logos have been loaded!");
+				logocount = i;
+			}
+		}
+		return logocount;		
+		
 	}
-	
-	
-	
+
 	
 }

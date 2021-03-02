@@ -61,7 +61,11 @@ public class DebuggingWIP {
 	@Test
 	public void addLogoToFaviourite() throws Exception {
 			
-	
+//	    int i = 34534;
+//	    
+//	    System.out.println("sdafj "+i+ " fsdfsd");
+//	    Thread.sleep(2000);	
+	    
 		
 		ldriver = BrowserFactory.initBrowser(browsername); //init threadlocal instance - recommended!
 		Thread.sleep(2000);	
@@ -78,10 +82,11 @@ public class DebuggingWIP {
 		
 		//login
 		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
-		dashboardpage.waitingLoadingIcon(20);
+		Thread.sleep(1000);
+		dashboardpage.waitlogoloading(5);
 		
 		Assert.fail("END of testing#$D");
-		Thread.sleep(15000);
+//		Thread.sleep(15000);
 		
 		
 		

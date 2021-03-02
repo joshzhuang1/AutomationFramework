@@ -49,7 +49,7 @@ public class ToolBox {
 		public static boolean waitforObject(WebElement webelement, int sec) {
 			WebDriver driver;
 			
-			//can be either local driver or remote driver
+			//init driver by getting current driver details
 			driver = DriverFactory.getInstance().getDriver();
 				
 			WebDriverWait wait = new WebDriverWait(driver, sec); // create new WebDriverWait object. maximum time 5s 
@@ -60,6 +60,25 @@ public class ToolBox {
 				return true;
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
+				ExtentLogger.info("Webelement is NOT displayed. Waiting time "+sec+" seconds."); //if not show, print to ext report
+			    return false;
+			}
+		}
+		
+		
+		//save methods as above but passing By parameter
+		public static boolean waitforObject(By locator, int sec) {
+			WebDriver driver;
+			
+			//init driver by getting current driver details
+			driver = DriverFactory.getInstance().getDriver();
+				
+			WebDriverWait wait = new WebDriverWait(driver, sec); // create new WebDriverWait object. maximum time 5s 
+			try {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+//				ExtentLogger.info("Webelement is displayed within "+sec+" seconds."); 
+				return true;
+			} catch (Exception e) {
 				ExtentLogger.info("Webelement is NOT displayed. Waiting time "+sec+" seconds."); //if not show, print to ext report
 			    return false;
 			}
