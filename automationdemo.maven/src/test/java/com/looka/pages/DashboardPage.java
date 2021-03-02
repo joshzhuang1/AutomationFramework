@@ -4,6 +4,7 @@
 package com.looka.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -30,6 +31,9 @@ public class DashboardPage {
 
 	@FindBy(how=How.XPATH,using="//button[text()='Confirm']")
 	WebElement confirmdelete;
+	
+	@FindBy(how=How.XPATH,using="//button[text()='Cancel']")
+	WebElement canceldelete;
 	
 	@FindBy(how=How.XPATH,using="//span[@class='css-1f3l2gp']/div[1]")
 	WebElement firstlogo;
@@ -74,12 +78,15 @@ public class DashboardPage {
 		Thread.sleep(2000);
 		WebElement deletebutton = this.driver.findElement(By.xpath("//a[@href='/editor/"+logoid+"']/../button[@class='css-1psw9c1']"));
 		deletebutton.click();
-		Thread.sleep(1000);
-		confirmdelete.click();
-		Thread.sleep(4000);
+		Thread.sleep(1500);
 		
-		//check if the webelement disappeared
-		if (ToolBox.waitforObject(idlabel, 2)) {
+//		confirmdelete.click();
+//		action.click(confirmdelete);
+		confirmdelete.sendKeys(Keys.ENTER); //only this click works
+		Thread.sleep(2000);
+		if(ToolBox.waitforObject(confirmdelete, 2)) {
+			ExtentLogger.failshot("### debug info ### Failed to click confirm delete button!!");
+		}else if (ToolBox.waitforObject(idlabel, 2)) {
 			ExtentLogger.failshot("Did NOT delete! Logo still displays! ID = "+logoid);			
 		}else {
 			ExtentLogger.pass("Logo is successfully deleted! ID = "+logoid);
@@ -124,9 +131,9 @@ public class DashboardPage {
 		int logocount = 0;
 		for (int i = 1; i <= maxnumber; i++) {
 			if (i==1) {
-				isloaded = ToolBox.waitforObject(By.xpath("//span[@class='css-1f3l2gp']/div["+i+"]"), 12);
+				isloaded = ToolBox.waitFor(By.xpath("//span[@class='css-1f3l2gp']/div["+i+"]"), 12);
 			}else {
-				isloaded = ToolBox.waitforObject(By.xpath("//span[@class='css-1f3l2gp']/div["+i+"]"), 4);
+				isloaded = ToolBox.waitFor(By.xpath("//span[@class='css-1f3l2gp']/div["+i+"]"), 4);
 			}
 			
 			//if image is not loaded, exit loop, return how many logos are loaded

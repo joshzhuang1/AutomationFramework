@@ -66,8 +66,9 @@ public class ToolBox {
 		}
 		
 		
+		
 		//save methods as above but passing By parameter
-		public static boolean waitforObject(By locator, int sec) {
+		public static boolean waitFor(By locator, int sec) {
 			WebDriver driver;
 			
 			//init driver by getting current driver details

@@ -84,6 +84,7 @@ public class DebuggingWIP {
 		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
 		Thread.sleep(1000);
 		dashboardpage.waitlogoloading(5);
+		dashboardpage.deleteLogoByIndex("1");
 		
 		Assert.fail("END of testing#$D");
 //		Thread.sleep(15000);

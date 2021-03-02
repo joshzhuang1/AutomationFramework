@@ -44,7 +44,7 @@ public class ExplorePage {
 		}
 	}
 	
-	public void checkGeneratedLogos(int sec) {
+	public void checkPickLogo(int sec) {
 		if (ToolBox.waitforObject(picklogo, sec)) {
 			ExtentLogger.pass("Logos are generated as expected!");
 		}else {
@@ -65,5 +65,35 @@ public class ExplorePage {
 //		logo.click();
 	}
 	
+	
+	//wait for all logos to be loaded on dashboard page - max number applied
+	//for first logo, waiting 12s as it might take longer, for subsequent ones waiting 4s max each
+	//if no more logo is loaded, return
+	public int waitgeneratedlogo(int maxnumber) {
+
+		boolean isloaded; //flag to check if next logo is loaded
+		int logocount = 0;
+		for (int i = 1; i <= maxnumber; i++) {
+			if (i==1) {
+				isloaded = ToolBox.waitFor(By.xpath("//span[@class='css-j5zjwc']/div["+i+"]"), 8);
+			}else {
+				isloaded = ToolBox.waitFor(By.xpath("//span[@class='css-j5zjwc']/div["+i+"]"), 3);
+			}
+			
+			//if image is not loaded, exit loop, return how many logos are loaded
+			if (!isloaded) {
+				ExtentLogger.info((i-1)+" logos have been loaded on Explore page!");
+				logocount = i-1;
+				return logocount;
+			}
+			
+			if (i == maxnumber) {
+				ExtentLogger.info(i+" or more logos have been loaded on Explore page!");
+				logocount = i;
+			}
+		}
+		return logocount;		
+		
+	}
 	
 }

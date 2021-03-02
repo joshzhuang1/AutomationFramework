@@ -64,6 +64,7 @@ public class LogoManagement {
 
 	
 	@Test  (priority=1)
+	//log in
 	public void login() throws Exception {
 		
 		//init pages
@@ -80,6 +81,7 @@ public class LogoManagement {
 	
 	// (dependsOnMethods={"login"}) 
 	@Test (priority=2)
+	//generate some logos and save one of them to fav
 	public void addLogoToSaved() throws Exception {
 		
 		//init pages
@@ -105,9 +107,11 @@ public class LogoManagement {
 		explorepage.checkLogoGenerating(3);
 		
 		//check if logos are generated within x seconds
-		explorepage.checkGeneratedLogos(12);
-		Thread.sleep(8000);
-		
+		explorepage.checkPickLogo(12);
+
+		//wait for all generated logos to be loaded
+		explorepage.waitgeneratedlogo(20);
+
 		//select a photo to save
 		explorepage.selectSavedLogo(5);
 		
@@ -121,17 +125,24 @@ public class LogoManagement {
 		//wait for all logos to be loaded
 		dashboardpage.waitlogoloading(30);
 		
-//		//wait a bit for page loading until chat icon shows
-//		commonlocators.waitForChatIcon(5);
-		
 		//Check if logo with specific ID is displayed
 		dashboardpage.checkSavedLogo(logoid);
 		
 		Thread.sleep(2000);
 	}
 	
+	@Test (priority=3)
+	// To delete a saved logo
+	public void deleteLogo() throws Exception {
+		ldriver.navigate().refresh(); // there is a bug here. if don't refresh page confirm delete button wouldn't work
+		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
+		//wait for all logos to be loaded
+		dashboardpage.waitlogoloading(2);
+		dashboardpage.deleteLogoByIndex("1");
+	}
 	
-	@Test  (priority=3)
+	@Test  (priority=4)
+	// log off
 	public void logoff() throws Exception {
 		
 		//init pages
