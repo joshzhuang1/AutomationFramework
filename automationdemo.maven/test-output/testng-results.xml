@@ -1,21 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="2" ignored="0" total="7" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="17076" started-at="2021-02-27T19:03:24 ACDT" finished-at="2021-02-27T19:03:41 ACDT">
+  <suite name="Default suite" duration-ms="197420" started-at="2021-03-02T12:26:11Z" finished-at="2021-03-02T12:29:29Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="17076" started-at="2021-02-27T19:03:24 ACDT" finished-at="2021-02-27T19:03:41 ACDT">
-      <class name="firstpackage.ForDebugging">
-        <test-method status="PASS" signature="launchApp()[pri:0, instance:firstpackage.ForDebugging@12cdcf4]" name="launchApp" duration-ms="15599" started-at="2021-02-27T19:03:24 ACDT" finished-at="2021-02-27T19:03:40 ACDT">
+    <test name="Default test" duration-ms="197420" started-at="2021-03-02T12:26:11Z" finished-at="2021-03-02T12:29:29Z">
+      <class name="com.looka.testcases.LogoManagement">
+        <test-method status="PASS" signature="initExtentReport()[pri:0, instance:com.looka.testcases.LogoManagement@353d0772]" name="initExtentReport" is-config="true" duration-ms="295" started-at="2021-03-02T12:26:11Z" finished-at="2021-03-02T12:26:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initExtentReport -->
+        <test-method status="PASS" signature="launchApp()[pri:0, instance:com.looka.testcases.LogoManagement@353d0772]" name="launchApp" is-config="true" duration-ms="8333" started-at="2021-03-02T12:26:11Z" depends-on-methods="com.looka.testcases.LogoManagement.initExtentReport" finished-at="2021-03-02T12:26:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApp -->
-        <test-method status="PASS" signature="closeApp()[pri:0, instance:firstpackage.ForDebugging@12cdcf4]" name="closeApp" is-config="true" duration-ms="1440" started-at="2021-02-27T19:03:40 ACDT" finished-at="2021-02-27T19:03:41 ACDT">
+        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:1, instance:com.looka.testcases.LogoManagement@353d0772]" name="login" duration-ms="20792" started-at="2021-03-02T12:26:20Z" data-provider="logindata" finished-at="2021-03-02T12:26:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[joshzhuangdemo@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[K!e9R#cj4KRXQ7w]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="addLogoToSaved(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.looka.testcases.LogoManagement@353d0772]" name="addLogoToSaved" duration-ms="55480" started-at="2021-03-02T12:26:41Z" data-provider="logodata" finished-at="2021-03-02T12:27:37Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Financial Services]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Orange]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[JoshZ]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Premium Quality]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addLogoToSaved -->
+        <test-method status="PASS" signature="addLogoToSaved(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.looka.testcases.LogoManagement@353d0772]" name="addLogoToSaved" duration-ms="50380" started-at="2021-03-02T12:27:37Z" data-provider="logodata" finished-at="2021-03-02T12:28:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Cafe]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Purple]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[SSS ELE]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Love & Peace]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addLogoToSaved -->
+        <test-method status="FAIL" signature="deleteLogo(java.lang.String)[pri:3, instance:com.looka.testcases.LogoManagement@353d0772]" name="deleteLogo" duration-ms="46748" started-at="2021-03-02T12:28:27Z" data-provider="deletelogo" finished-at="2021-03-02T12:29:14Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Set test result to FAIL due to failed steps]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Set test result to FAIL due to failed steps
+at org.testng.Assert.fail(Assert.java:96)
+at utilities.auto.TestNGListener.onTestSuccess(TestNGListener.java:55)
+at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:70)
+at org.testng.internal.Invoker.runTestListeners(Invoker.java:1389)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:636)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteLogo -->
+        <test-method status="PASS" signature="deleteLogo(java.lang.String)[pri:3, instance:com.looka.testcases.LogoManagement@353d0772]" name="deleteLogo" duration-ms="18886" started-at="2021-03-02T12:28:27Z" data-provider="deletelogo" finished-at="2021-03-02T12:28:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteLogo -->
+        <test-method status="PASS" signature="deleteLogo(java.lang.String)[pri:3, instance:com.looka.testcases.LogoManagement@353d0772]" name="deleteLogo" duration-ms="18055" started-at="2021-03-02T12:28:46Z" data-provider="deletelogo" finished-at="2021-03-02T12:29:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteLogo -->
+        <test-method status="FAIL" signature="logoff()[pri:4, instance:com.looka.testcases.LogoManagement@353d0772]" name="logoff" duration-ms="13343" started-at="2021-03-02T12:29:14Z" finished-at="2021-03-02T12:29:27Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Set test result to FAIL due to failed steps]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Set test result to FAIL due to failed steps
+at org.testng.Assert.fail(Assert.java:96)
+at utilities.auto.TestNGListener.onTestSuccess(TestNGListener.java:55)
+at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:70)
+at org.testng.internal.Invoker.runTestListeners(Invoker.java:1389)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:636)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoff -->
+        <test-method status="PASS" signature="closeApp()[pri:0, instance:com.looka.testcases.LogoManagement@353d0772]" name="closeApp" is-config="true" duration-ms="1508" started-at="2021-03-02T12:29:27Z" finished-at="2021-03-02T12:29:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeApp -->
-      </class> <!-- firstpackage.ForDebugging -->
+      </class> <!-- com.looka.testcases.LogoManagement -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

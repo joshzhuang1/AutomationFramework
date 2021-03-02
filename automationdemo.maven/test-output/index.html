@@ -5,9 +5,8 @@
   <meta charset='utf-8'>
   <title>TestNG reports</title>
 
-    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
-    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
-    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="testng-reports.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type='text/javascript'>
@@ -24,9 +23,8 @@
   <body>
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
-      <button class="button" id="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Default_suite">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\JoshZhuang\AppData\Local\Temp\testng-eclipse-1098722998\testng-customsuite.xml</span>
+                    <span>C:\Users\JoshZhuang\AppData\Local\Temp\testng-eclipse--632390763\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +91,26 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">7 methods, 2 failed,   5 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.looka.testcases.LogoManagement" hash-for-method="deleteLogo">deleteLogo</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.looka.testcases.LogoManagement" hash-for-method="logoff">logoff</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,7 +121,27 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="firstpackage.ForDebugging" hash-for-method="launchApp">launchApp</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.looka.testcases.LogoManagement" hash-for-method="addLogoToSaved(Financial Services, Orange, JoshZ, Premium Quality)">addLogoToSaved(Financial Services, Orange, JoshZ, Premium Quality)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.looka.testcases.LogoManagement" hash-for-method="addLogoToSaved(Cafe, Purple, SSS ELE, Love &amp; Peace)">addLogoToSaved(Cafe, Purple, SSS ELE, Love & Peace)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.looka.testcases.LogoManagement" hash-for-method="deleteLogo(1.0)">deleteLogo(1.0)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.looka.testcases.LogoManagement" hash-for-method="deleteLogo(2.0)">deleteLogo(2.0)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.looka.testcases.LogoManagement" hash-for-method="login(joshzhuangdemo@gmail.com, K!e9R#cj4KRXQ7w)">login(joshzhuangdemo@gmail.com, K!e9R#cj4KRXQ7w)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -119,17 +156,126 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">firstpackage.ForDebugging</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.looka.testcases.LogoManagement</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="launchApp">
-                  </a> <!-- launchApp -->
-                  <span class="method-name">launchApp</span>
+                  <a name="deleteLogo">
+                  </a> <!-- deleteLogo -->
+                  <span class="method-name">deleteLogo</span>
+                  <div class="stack-trace">java.lang.AssertionError: Set test result to FAIL due to failed steps
+	at org.testng.Assert.fail(Assert.java:96)
+	at utilities.auto.TestNGListener.onTestSuccess(TestNGListener.java:55)
+	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:70)
+	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1389)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:636)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="logoff">
+                  </a> <!-- logoff -->
+                  <span class="method-name">logoff</span>
+                  <div class="stack-trace">java.lang.AssertionError: Set test result to FAIL due to failed steps
+	at org.testng.Assert.fail(Assert.java:96)
+	at utilities.auto.TestNGListener.onTestSuccess(TestNGListener.java:55)
+	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:70)
+	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1389)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:636)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.looka.testcases.LogoManagement</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="addLogoToSaved(Financial Services, Orange, JoshZ, Premium Quality)">
+                  </a> <!-- addLogoToSaved(Financial Services, Orange, JoshZ, Premium Quality) -->
+                  <span class="method-name">addLogoToSaved</span>
+                  <span class="parameters">(Financial Services, Orange, JoshZ, Premium Quality)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="addLogoToSaved(Cafe, Purple, SSS ELE, Love &amp; Peace)">
+                  </a> <!-- addLogoToSaved(Cafe, Purple, SSS ELE, Love & Peace) -->
+                  <span class="method-name">addLogoToSaved</span>
+                  <span class="parameters">(Cafe, Purple, SSS ELE, Love & Peace)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleteLogo(1.0)">
+                  </a> <!-- deleteLogo(1.0) -->
+                  <span class="method-name">deleteLogo</span>
+                  <span class="parameters">(1.0)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleteLogo(2.0)">
+                  </a> <!-- deleteLogo(2.0) -->
+                  <span class="method-name">deleteLogo</span>
+                  <span class="parameters">(2.0)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="login(joshzhuangdemo@gmail.com, K!e9R#cj4KRXQ7w)">
+                  </a> <!-- login(joshzhuangdemo@gmail.com, K!e9R#cj4KRXQ7w) -->
+                  <span class="method-name">login</span>
+                  <span class="parameters">(joshzhuangdemo@gmail.com, K!e9R#cj4KRXQ7w)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -137,16 +283,16 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\JoshZhuang\AppData\Local\Temp\testng-eclipse-1098722998\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\JoshZhuang\AppData\Local\Temp\testng-eclipse--632390763\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;firstpackage.ForDebugging&quot;/&gt;
+      &lt;class name=&quot;com.looka.testcases.LogoManagement&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -186,16 +332,40 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(7);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'launchApp')
-data.setCell(0, 2, 'firstpackage.ForDebugging')
-data.setCell(0, 3, 15599);
+data.setCell(0, 1, 'addLogoToSaved')
+data.setCell(0, 2, 'com.looka.testcases.LogoManagement')
+data.setCell(0, 3, 55480);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'addLogoToSaved')
+data.setCell(1, 2, 'com.looka.testcases.LogoManagement')
+data.setCell(1, 3, 50380);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'deleteLogo')
+data.setCell(2, 2, 'com.looka.testcases.LogoManagement')
+data.setCell(2, 3, 46748);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'login')
+data.setCell(3, 2, 'com.looka.testcases.LogoManagement')
+data.setCell(3, 3, 20792);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'deleteLogo')
+data.setCell(4, 2, 'com.looka.testcases.LogoManagement')
+data.setCell(4, 3, 18886);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'deleteLogo')
+data.setCell(5, 2, 'com.looka.testcases.LogoManagement')
+data.setCell(5, 3, 18055);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'logoff')
+data.setCell(6, 2, 'com.looka.testcases.LogoManagement')
+data.setCell(6, 3, 13343);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 15 seconds</span>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -221,19 +391,50 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">firstpackage.ForDebugging</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">launchApp</span>
+              <div class="chronological-class-name">com.looka.testcases.LogoManagement</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">initExtentReport</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">launchApp</span>
+                <span class="method-start">295 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">login(joshzhuangdemo@gmail.com, K!e9R#cj4KRXQ7w)</span>
+                <span class="method-start">9094 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addLogoToSaved(Financial Services, Orange, JoshZ, Premium Quality)</span>
+                <span class="method-start">29940 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addLogoToSaved(Cafe, Purple, SSS ELE, Love & Peace)</span>
+                <span class="method-start">85423 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">deleteLogo(2.0)</span>
+                <span class="method-start">135864 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">deleteLogo(1.0)</span>
+                <span class="method-start">154752 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">deleteLogo(15.0)</span>
+                <span class="method-start">172808 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">logoff</span>
+                <span class="method-start">182557 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">closeApp</span>
-                <span class="method-start">15603 ms</span>
+                <span class="method-start">195902 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
     </div> <!-- wrapper -->
   </body>
-<script type="text/javascript" src="testng-reports2.js"></script>
 </html>
