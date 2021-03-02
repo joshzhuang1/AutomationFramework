@@ -54,7 +54,7 @@ public class OnboardingPage {
 	
 	
 	public void checkOnboarding() throws IOException {
-		if (ToolBox.waitforObject(industryfield, 3)) {
+		if (ToolBox.waitFor(industryfield, 3)) {
 			ExtentLogger.pass("Landed on onboarding Page");
 		}else {
 				ExtentLogger.failshot("Did NOT land on onboarding page!");
@@ -64,7 +64,7 @@ public class OnboardingPage {
 	//On "Pick some logos you like" section: to wait until the indexed logo to show up, and select it 
 	public void selectLikedLogo(String index) {
 		WebElement logo = this.driver.findElement(By.xpath("//div[@class='css-of0vry css-1smao10 css-k008qs css-1jkp9i7']/div["+index+"]"));
-		ToolBox.waitforObject(logo, 5); //the logos take some time to show up
+		ToolBox.waitFor(logo, 5); //the logos take some time to show up
 		logo.click();
 	}
 	
@@ -72,7 +72,7 @@ public class OnboardingPage {
 	//On "Pick colors" section: select color 
 	public void selectColor(String color) {
 		WebElement colorlabel = this.driver.findElement(By.xpath("//h6[text()='"+color+"']"));
-		ToolBox.waitforObject(colorlabel, 5); //the logos take some time to show up
+		ToolBox.waitFor(colorlabel, 5); //the logos take some time to show up
 		colorlabel.click();
 	}
 	

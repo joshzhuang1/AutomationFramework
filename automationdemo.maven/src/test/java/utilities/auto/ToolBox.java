@@ -46,7 +46,7 @@ public class ToolBox {
 		
 		
 		//explicit wait for a webelement to show up within x seconds,if not shown, print info, return false. otherwise return true
-		public static boolean waitforObject(WebElement webelement, int sec) {
+		public static boolean waitFor(WebElement webelement, int sec) {
 			WebDriver driver;
 			
 			//init driver by getting current driver details

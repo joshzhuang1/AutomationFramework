@@ -38,7 +38,7 @@ public class EditorPage {
 	
 	//to get the id of the logo currently being editted
 	public String getCurrentLogoID() {
-		ToolBox.waitforObject(download, 6); //wait until page is loaded
+		ToolBox.waitFor(download, 6); //wait until page is loaded
 		
 		String url = driver.getCurrentUrl(); //ID is in url string
 		String logoid = url.replaceAll("\\D+",""); // this is to get rid of all non-digits. so "https://looka.com/editor/62208209" becomes "62208209"

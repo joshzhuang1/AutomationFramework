@@ -100,7 +100,7 @@ public class DebuggingWIP {
 		
 		
 		WebElement logo = this.ldriver.findElement(By.xpath("//span[@class='css-1f3l2gp']/div[3]"));
-		ToolBox.waitforObject(logo, 8); //the logos take some time to show up
+		ToolBox.waitFor(logo, 8); //the logos take some time to show up
 		logo.click();
 		
 		Thread.sleep(1000);

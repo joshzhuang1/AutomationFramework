@@ -53,9 +53,9 @@ public class CommonLocators {
 	
 	//check if user is logged in. return true or false
 	public boolean checkUserLogin() throws Exception {	
-		if (ToolBox.waitforObject(menubutton, 8)) {
+		if (ToolBox.waitFor(menubutton, 8)) {
 			menubutton.click();
-			if (ToolBox.waitforObject(logout, 3)) {
+			if (ToolBox.waitFor(logout, 3)) {
 				ExtentLogger.pass("user login successful!");
 				closemenu.click();
 				return true;
@@ -89,7 +89,7 @@ public class CommonLocators {
 	
 	//wait until chaticon shows
 	public void waitForChatIcon(int sec) {
-		ToolBox.waitforObject(chaticon, sec);
+		ToolBox.waitFor(chaticon, sec);
 	}
 	
 	//log off current user
@@ -103,7 +103,7 @@ public class CommonLocators {
 		
 		//check if user already logged off
 		menubutton.click();
-		if (!ToolBox.waitforObject(logout, 3)) {
+		if (!ToolBox.waitFor(logout, 3)) {
 			ExtentLogger.pass("Successfully logged off!");
 		}else {
 			ExtentLogger.failshot("User is NOT logged off!");

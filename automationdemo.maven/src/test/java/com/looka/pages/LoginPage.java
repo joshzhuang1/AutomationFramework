@@ -59,7 +59,7 @@ public class LoginPage {
 	//check if login button exists
 	public boolean checkLoginLabel(int sec) {
 //		String url = driver.getCurrentUrl(); 	
-		if (ToolBox.waitforObject(loginlabel, sec)) {
+		if (ToolBox.waitFor(loginlabel, sec)) {
 			ExtentLogger.pass("Login button displays!");
 			return true;
 		}else {

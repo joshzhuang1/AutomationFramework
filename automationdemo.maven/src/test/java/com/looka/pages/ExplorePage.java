@@ -35,9 +35,9 @@ public class ExplorePage {
 	}
 	
 	public void checkLogoGenerating(int sec) {
-		if (ToolBox.waitforObject(generatinglogo, sec)) {
+		if (ToolBox.waitFor(generatinglogo, sec)) {
 			ExtentLogger.info("Generating logos in progress");
-		}else if(ToolBox.waitforObject(picklogo, 2)){
+		}else if(ToolBox.waitFor(picklogo, 2)){
 			ExtentLogger.info("logos are already generated!");
 		}else {
 			ExtentLogger.failshot("Not generating logos! Check screenshot!");
@@ -45,7 +45,7 @@ public class ExplorePage {
 	}
 	
 	public void checkPickLogo(int sec) {
-		if (ToolBox.waitforObject(picklogo, sec)) {
+		if (ToolBox.waitFor(picklogo, sec)) {
 			ExtentLogger.pass("Logos are generated as expected!");
 		}else {
 				ExtentLogger.failshot("Logos are not generated yet! Check screenshot!");
@@ -55,7 +55,7 @@ public class ExplorePage {
 	public void selectSavedLogo(int index) {
 		WebElement logo = this.driver.findElement(By.xpath("//span[@class='css-j5zjwc']/div["+index+"]"));
 //		WebElement logo = this.driver.findElement(By.xpath("//span[@class='css-j5zjwc']/div["+index+"]/div[@class='css-of0vry css-1rkhyuy css-k008qs']"));
-		ToolBox.waitforObject(logo, 10); //the logos take some time to show up
+		ToolBox.waitFor(logo, 10); //the logos take some time to show up
 		
 		//try javascript!
 		Actions actions = new Actions(driver);

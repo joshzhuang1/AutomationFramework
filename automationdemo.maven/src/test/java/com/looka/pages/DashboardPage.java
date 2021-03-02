@@ -46,7 +46,7 @@ public class DashboardPage {
 
 	
 	public void checkSavedLogo(String logoid) {
-		ToolBox.waitforObject(savedlogosheading, 5);
+		ToolBox.waitFor(savedlogosheading, 5);
 		try {
 			WebElement logo = this.driver.findElement(By.xpath("//a[@href='/editor/"+logoid+"']")); //if this webelement doesn't exist, exception will be thrown.
 			ExtentLogger.passshot("Saved logo is found. ID = "+logoid);
@@ -84,9 +84,9 @@ public class DashboardPage {
 //		action.click(confirmdelete);
 		confirmdelete.sendKeys(Keys.ENTER); //only this click works
 		Thread.sleep(2000);
-		if(ToolBox.waitforObject(confirmdelete, 2)) {
+		if(ToolBox.waitFor(confirmdelete, 2)) {
 			ExtentLogger.failshot("### debug info ### Failed to click confirm delete button!!");
-		}else if (ToolBox.waitforObject(idlabel, 2)) {
+		}else if (ToolBox.waitFor(idlabel, 2)) {
 			ExtentLogger.failshot("Did NOT delete! Logo still displays! ID = "+logoid);			
 		}else {
 			ExtentLogger.pass("Logo is successfully deleted! ID = "+logoid);

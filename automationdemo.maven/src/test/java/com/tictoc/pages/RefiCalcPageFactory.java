@@ -83,7 +83,7 @@ public class RefiCalcPageFactory {
 		//depending on current rate and breakevenrate, it should display welldone or hurray label accordingly.
 		if (Float.parseFloat(inputrate) <= Float.parseFloat(breakevenrate)){
 			
-			ToolBox.waitforObject(welldonelabel,5);//explicit wait 3 seconds for welldone label
+			ToolBox.waitFor(welldonelabel,5);//explicit wait 3 seconds for welldone label
 			
 			if(ToolBox.objectExists(welldonelabel)){ //Welldone label should display, when current rate is lower than breakeven
 		    	System.out.println("Passed! welldone label displays as expected");
@@ -95,7 +95,7 @@ public class RefiCalcPageFactory {
 		
 		}else {
 			
-			ToolBox.waitforObject(Hurrahlabel,5); //explicit wait 3 seconds for hurrah label
+			ToolBox.waitFor(Hurrahlabel,5); //explicit wait 3 seconds for hurrah label
 			
 			if(ToolBox.objectExists(Hurrahlabel)){ //Hurrah label should display, when current rate is higher than breakeven
 		    	System.out.println("Passed! Hurrah label displays as expected");
