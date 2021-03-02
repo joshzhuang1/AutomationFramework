@@ -89,6 +89,8 @@ public class LogoManagement {
 		EditorPage editorpage = PageFactory.initElements(ldriver, EditorPage.class);
 		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
 		
+		//wait for all logos to be loaded
+		dashboardpage.waitlogoloading(30);
 		
 		//navigate to logo generator
 		commonlocators.navigateToGenerator();
@@ -115,10 +117,12 @@ public class LogoManagement {
 		
 		//navigate to dashboard page
 		commonlocators.navigateToSavedlogos();
-		Thread.sleep(4000);
 		
-		//wait a bit for page loading until chat icon shows
-		commonlocators.waitForChatIcon(5);
+		//wait for all logos to be loaded
+		dashboardpage.waitlogoloading(30);
+		
+//		//wait a bit for page loading until chat icon shows
+//		commonlocators.waitForChatIcon(5);
 		
 		//Check if logo with specific ID is displayed
 		dashboardpage.checkSavedLogo(logoid);

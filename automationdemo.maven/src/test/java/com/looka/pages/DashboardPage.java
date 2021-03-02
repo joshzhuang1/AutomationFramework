@@ -116,7 +116,7 @@ public class DashboardPage {
 	
 	
 	//wait for all logos to be loaded on dashboard page - max number applied
-	//for first logo, waiting 12s as it's taking longer, for subsequent logo, waiting 5s max each
+	//for first logo, waiting 12s as it might take longer, for subsequent ones waiting 4s max each
 	//if no more logo is loaded, return
 	public int waitlogoloading(int maxnumber) {
 
@@ -126,18 +126,18 @@ public class DashboardPage {
 			if (i==1) {
 				isloaded = ToolBox.waitforObject(By.xpath("//span[@class='css-1f3l2gp']/div["+i+"]"), 12);
 			}else {
-				isloaded = ToolBox.waitforObject(By.xpath("//span[@class='css-1f3l2gp']/div["+i+"]"), 5);
+				isloaded = ToolBox.waitforObject(By.xpath("//span[@class='css-1f3l2gp']/div["+i+"]"), 4);
 			}
 			
 			//if image is not loaded, exit loop, return how many logos are loaded
 			if (!isloaded) {
-				ExtentLogger.info((i-1)+" logos have been loaded!");
+				ExtentLogger.info((i-1)+" logos have been loaded on DashBoard page!");
 				logocount = i-1;
 				return logocount;
 			}
 			
 			if (i == maxnumber) {
-				ExtentLogger.info(i+" or more logos have been loaded!");
+				ExtentLogger.info(i+" or more logos have been loaded on DashBoard page!");
 				logocount = i;
 			}
 		}
