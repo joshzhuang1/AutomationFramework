@@ -145,7 +145,7 @@ public class LogoManagement {
 		explorepage.waitgeneratedlogo(20);
 
 		//select a photo to save
-		explorepage.selectSavedLogo(5);
+		explorepage.selectSavedLogo(2);
 		
 		//get logo id from editor page url
 		String logoid = editorpage.getCurrentLogoID();
