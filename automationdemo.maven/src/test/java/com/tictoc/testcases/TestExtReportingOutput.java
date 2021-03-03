@@ -33,7 +33,7 @@ import utilities.auto.DriverFactory;
 		@BeforeClass  //init test report
 		public void initTestReport() throws IOException{
 			//init test report
-			ExtentReport.createTestReport(testname, testname);
+			ExtentReport.createTestReport(testname);
 		}
 		
 		
@@ -85,7 +85,7 @@ import utilities.auto.DriverFactory;
 			ExtentLogger.pass("step passed");
 			
 			//finalise test report
-			ExtentReport.flushReports(testname);
+			ExtentReport.flushReports();
 		}
 		
 	}

@@ -18,7 +18,7 @@ import utilities.auto.DriverFactory;
 
 public class CrossBrowserDemo {
 	WebDriver driver;
-	String reportfolder = "CrossBrowserDemo";
+//	String reportfolder = "CrossBrowserDemo";
 //	String browsername = "chrome";      		// "edge";
 	String url = "https://tictoc.com.au/";		// "https://www.nab.com.au/"
 	
@@ -36,7 +36,7 @@ public class CrossBrowserDemo {
 	@Parameters({"testcasename"})
 	public void initTestReport(String testname) throws IOException {
 		//init test report
-		ExtentReport.createTestReport(reportfolder, testname);
+		ExtentReport.createTestReport(testname);
 	}
 	
 	
@@ -75,7 +75,7 @@ public class CrossBrowserDemo {
 		ExtentLogger.pass("step passed");
 		
 		//finalise test report
-		ExtentReport.flushReports(reportfolder);
+		ExtentReport.flushReports();
 	}
 }
 

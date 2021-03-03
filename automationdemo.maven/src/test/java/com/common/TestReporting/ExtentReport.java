@@ -8,6 +8,9 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import utilities.auto.ToolBox;
+
 import java.util.Objects;
 
 import org.testng.Assert;
@@ -20,11 +23,16 @@ public class ExtentReport {
 	private static ExtentReports extent;
 	//public static ExtentTest test;
 	
-	//init report, specify report folder, load config file
-	public static void initReports(String foldername) throws IOException {
+	//Name of the Test Class that calls this methods
+	static String foldername = ToolBox.getCallerCallerClassName(); 
+	
+	//init report, specify report folder path (using test class name), load config file
+	public static void initReports() throws IOException {
 		if(Objects.isNull(extent)) { // don't run this if extent object already exists
 			extent = new ExtentReports(); //create new extentreport object
-			ExtentSparkReporter spark = new ExtentSparkReporter("testreports/"+foldername+"/index.html"); //set report html file path and name
+			
+			ExtentSparkReporter spark = new ExtentSparkReporter("testreports/"+foldername
+					+"/index.html"); //set report html file path and name
 			extent.attachReporter(spark); //Attach a reporter to access all started tests, nodes and logs			
 			spark.loadXMLConfig(new File("XMLfiles/extentconfig.xml")); //Load extentconfig.xml file	
 		}
@@ -41,21 +49,21 @@ public class ExtentReport {
 	
 	
 	//initReports + createTest ----- mostly used
-	public static void createTestReport(String foldername,String testcasename) throws IOException {
-			initReports(foldername);
+	public static void createTestReport(String testcasename) throws IOException {
+			initReports();
 			createTest(testcasename);
 	}
 
 	
 	//tear down report and sync status
-	public static void flushReports() throws IOException {
+	public static void flushReportsAlt() throws IOException {
 		extent.flush(); //write all the test logs to the report file			
 //		syncReportResult(); //to fail TestNG report, if Extentreport is a fail.
 	}
 	
 	
 	//tear down report, launch report.
-	public static void flushReports(String foldername) throws IOException {
+	public static void flushReports() throws IOException {
 		extent.flush(); //write all the test logs to the report file
 		Desktop.getDesktop().browse(new File("testreports/"+foldername+"/index.html").toURI()); //open html report at the end of the test
 //		syncReportResult(); //if any failed steps in Extentreport, also fail TestNG report.

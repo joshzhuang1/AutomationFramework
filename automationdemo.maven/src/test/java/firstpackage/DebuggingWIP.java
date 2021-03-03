@@ -43,7 +43,7 @@ public class DebuggingWIP {
 
 	@BeforeClass // init extreport
 	public void initExtentReport() throws IOException {
-		ExtentReport.createTestReport(reportfolder, testcasename); //init extent report
+		ExtentReport.createTestReport(testcasename); //init extent report
 	}
 	
 	@AfterClass //close chrome and flush extreport
@@ -53,7 +53,7 @@ public class DebuggingWIP {
 		DriverFactory.getInstance().removeDriver(); //close current threadlocal browser instance --- for multi-threading
 		
 		//finalise test report
-		ExtentReport.flushReports(reportfolder);
+		ExtentReport.flushReports();
 	}
 
 	
@@ -65,8 +65,14 @@ public class DebuggingWIP {
 //	    
 //	    System.out.println("sdafj "+i+ " fsdfsd");
 //	    Thread.sleep(2000);	
-	    
+		String input = "hello.com.au@Gsdrt1234";
+		String output = input.substring(0, input.indexOf('@'));
 		
+//		String[] val = new String[20];
+//		for(int i=1; i<10; i++) {
+//			val[i] = this.toString(); 
+//	    }
+//		Assert.fail("END of testing#$D");
 		ldriver = BrowserFactory.initBrowser(browsername); //init threadlocal instance - recommended!
 		Thread.sleep(2000);	
 //		ExtentReport.createTestReport(reportfolder, reportfolder); //init extent report
@@ -74,7 +80,7 @@ public class DebuggingWIP {
 		
 		ldriver.manage().window().maximize(); //maximise window
 		ldriver.get(url); //navigate to *url*	
-		
+		Assert.fail("END of testing#$D");
 		//init LoginPage
 		LoginPage loginpage = PageFactory.initElements(ldriver, LoginPage.class);	
 		//init dashboard page

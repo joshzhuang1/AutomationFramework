@@ -35,7 +35,7 @@ import utilities.auto.ExcelDataConfig;
 public class VerifySavingsDDT {
 	
 	WebDriver ldriver;
-	String reportfolder = "VerifySavingsDTT";
+//	String reportfolder = "VerifySavingsDTT";
 	
 	//specify testdata input
 	String wbname = "testdata/CalcInput.xlsx";
@@ -66,7 +66,7 @@ public class VerifySavingsDDT {
 	@Parameters({"testcasename"}) // !!!this parameters will be from VerifySavingsDDT.xml and passed to below initTestReport method
 	public void initTestReport(String testname) throws IOException {
 		//init test report. reportfolder is the html report location, testname specifies testnode in extreport.
-		ExtentReport.createTestReport(reportfolder, testname);
+		ExtentReport.createTestReport(testname);
 	}
 	
 	
@@ -77,7 +77,7 @@ public class VerifySavingsDDT {
 		DriverFactory.getInstance().removeDriver(); //close current threadlocal browser instance --- for multi-threading
 		
 		//finalise test report
-		ExtentReport.flushReports(reportfolder);
+		ExtentReport.flushReports();
 	}
 	
 	

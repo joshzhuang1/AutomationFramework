@@ -36,11 +36,6 @@ import utilities.auto.ExcelDataConfig;
 
 public class LogoManagement {
 	WebDriver ldriver;
-//	String reportfolder = "Lookatests";
-	String testcasename = "Lookatests";
-	String browsername = "chrome";
-	String url = "https://www.looka.com/";
-	
 	
 	//data input
 	String wbname = "testdata/manageLogo.xlsx";
@@ -74,7 +69,7 @@ public class LogoManagement {
 	@BeforeClass 
 	@Parameters({"testcasename"})// init extreport
 	public void initExtentReport(String testname) throws IOException, Exception {
-		ExtentReport.createTestReport(this.toString(), testname); //init extent report. html report path to use Class Name
+		ExtentReport.createTestReport(testname); //init extent report. testname is logger name
 	}
 
 	@BeforeClass (dependsOnMethods={"initExtentReport"}) //init browser instance and launch app
@@ -95,7 +90,7 @@ public class LogoManagement {
 		DriverFactory.getInstance().removeDriver(); //close current threadlocal browser instance --- for multi-threading
 		
 		//finalise test report
-		ExtentReport.flushReports(this.toString());
+		ExtentReport.flushReports();
 	}
 
 	
