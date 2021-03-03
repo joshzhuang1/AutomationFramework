@@ -39,17 +39,17 @@ public class LogoManagement {
 	
 	//data input
 	String wbname = "testdata/manageLogo.xlsx";
-	String stname1 = "logindetails";
+//	String stname1 = "logindetails";
 	String stname2 = "logodetails";
 	String stname3 = "logoindex";
 
 	
-	@DataProvider(name = "logindata")
-	public Object[][] passData1() {  //return 2-dim array 
-		ExcelDataConfig inputsheet = new ExcelDataConfig(wbname,stname1);
-		Object data[][] = inputsheet.getTestData();
-		return data;
-	}
+//	@DataProvider(name = "logindata")
+//	public Object[][] passData1() {  //return 2-dim array 
+//		ExcelDataConfig inputsheet = new ExcelDataConfig(wbname,stname1);
+//		Object data[][] = inputsheet.getTestData();
+//		return data;
+//	}
 	
 	@DataProvider(name = "logodata")
 	public Object[][] passData2() {  //return 2-dim array 
@@ -94,7 +94,8 @@ public class LogoManagement {
 	}
 
 	
-	@Test (priority=1, dataProvider ="logindata")
+	@Test (priority=1)
+	@Parameters({"username","password"}) 
 	public void login(String uname, String pword) throws Exception {
 				//init pages
 		LoginPage loginpage = PageFactory.initElements(ldriver, LoginPage.class);	

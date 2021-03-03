@@ -23,6 +23,8 @@
 	  <parameter name="testcasename" value="Logo E2E - edge" />		 
 	  <parameter name="startingurl" value="https://www.looka.com/" />		
 	  <parameter name="seleniumhub" value="http://localhost:4546/wd/hub" />
+	  <parameter name="username" value="joshzhuangdemo@gmail.com" />
+	  <parameter name="password" value="K!e9R#cj4KRXQ7w" />
 	  <classes> 
 		  <class name="com.looka.testcases.LogoManagement">              
 		<!--  	<methods> <include name="verifylogger" /> </methods> -->
