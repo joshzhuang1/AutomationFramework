@@ -11,6 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.common.TestReporting.ExtentLogger;
@@ -35,7 +36,7 @@ import utilities.auto.ExcelDataConfig;
 
 public class LogoManagement {
 	WebDriver ldriver;
-	String reportfolder = "Lookatests";
+//	String reportfolder = "Lookatests";
 	String testcasename = "Lookatests";
 	String browsername = "chrome";
 	String url = "https://www.looka.com/";
@@ -70,17 +71,20 @@ public class LogoManagement {
 	}
 	
 	
-	@BeforeClass // init extreport
-	public void initExtentReport() throws IOException, Exception {
-		ExtentReport.createTestReport(reportfolder, testcasename); //init extent report
+	@BeforeClass 
+	@Parameters({"testcasename"})// init extreport
+	public void initExtentReport(String testname) throws IOException, Exception {
+		ExtentReport.createTestReport(this.toString(), testname); //init extent report. html report path to use Class Name
 	}
 
 	@BeforeClass (dependsOnMethods={"initExtentReport"}) //init browser instance and launch app
-	public void launchApp() throws Exception {
-		ldriver = BrowserFactory.initBrowser(browsername); //init threadlocal instance - recommended!
+	@Parameters({"selectedbrowser","startingurl","seleniumhub"}) // !!!this parameters will be from LogoE2E.xml and passed to below launchApp method
+	public void launchApp(String browsername, String auturl,String huburl) throws InterruptedException, IOException {
+		ldriver = BrowserFactory.initBrowser(browsername,huburl); //init threadlocal instance - recommended!
 		Thread.sleep(2000);	
+		
 		ldriver.manage().window().maximize(); //maximise window
-		ldriver.get(url); //navigate to *url*	
+		ldriver.get(auturl); //navigate to *url*	
 	}
 	
 
@@ -91,7 +95,7 @@ public class LogoManagement {
 		DriverFactory.getInstance().removeDriver(); //close current threadlocal browser instance --- for multi-threading
 		
 		//finalise test report
-		ExtentReport.flushReports(reportfolder);
+		ExtentReport.flushReports(this.toString());
 	}
 
 	
@@ -166,20 +170,19 @@ public class LogoManagement {
 	
 	@Test (priority=3, dataProvider ="deletelogo")
 	// To delete a saved logo
-	public void deleteLogo(String Index) throws Exception {
+	public void deleteLogo(String interation) throws Exception {
 		//print test data info in report
-		ExtentLogger.info("***TEST DATA*** to delete logo #"+Index);
+		ExtentLogger.info("***TEST DATA*** to delete logo - iteration "+interation);
 		//init pages
 		DashboardPage dashboardpage = PageFactory.initElements(ldriver, DashboardPage.class);
 		
 		ldriver.navigate().refresh(); // there is a bug here. if don't refresh page confirm delete button wouldn't work
 		
 		//wait for all logos to be loaded
-		dashboardpage.waitlogoloading(30);
+		int logocount = dashboardpage.waitlogoloading(30);
 		
-		//wait for all logos to be loaded
-		dashboardpage.waitlogoloading(2);
-		dashboardpage.deleteLogoByIndex(Index);
+		//delete the last logo  on the page
+		dashboardpage.deleteLogoByIndex(Integer.toString(logocount));
 	}
 	
 	@Test  (priority=4)

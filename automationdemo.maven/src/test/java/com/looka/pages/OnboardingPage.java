@@ -4,6 +4,7 @@
 package com.looka.pages;
 
 import java.io.IOException;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -84,8 +85,11 @@ public class OnboardingPage {
 		Thread.sleep(5000);
 
 		//select #3 and #5 logos
-		selectLikedLogo("3");
-		selectLikedLogo("5");
+		Random rand = new Random();
+		int index1 = rand.nextInt(3) + 1;  // 1 to 3
+		int index2 = rand.nextInt(3) + 4;  // 4 to 6
+		selectLikedLogo(Integer.toString(index1));
+		selectLikedLogo(Integer.toString(index2));
 		Thread.sleep(2000);
 		continuebutton.click();
 		Thread.sleep(1500);
