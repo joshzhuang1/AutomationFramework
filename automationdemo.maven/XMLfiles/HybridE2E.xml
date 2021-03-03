@@ -3,18 +3,6 @@
 <suite name="Full Regression Suite" parallel = "tests" thread-count = "5">
       
   
-  <test name="LogoChrome">  
-	  <parameter name="selectedbrowser" value="chrome" />    
-	  <parameter name="testcasename" value="Logo E2E - Chrome" />		 
-	  <parameter name="startingurl" value="https://www.looka.com/" />
-	  <parameter name="seleniumhub" value="http://localhost:4546/wd/hub" />
-	  <classes> 
-		  <class name="com.looka.testcases.LogoManagement">               
-		<!--  	<methods> <include name="verifylogger" /> </methods> -->
-		  </class>
-	  </classes>
-  </test> <!-- Test -->
-   
    
    <test name="LoanFF">  
 	  <parameter name="selectedbrowser" value="firefox" />    
@@ -23,20 +11,6 @@
 	  <parameter name="seleniumhub" value="http://localhost:4546/wd/hub" />
 	  <classes> 
 		  <class name="com.tictoc.testcases.VerifySavingsDDTonGrid">               
-		<!--  	<methods> <include name="verifylogger" /> </methods> -->
-		  </class>
-	  </classes>
-  </test> <!-- Test -->
-  
-    
-    
-  <test name="LogoFF">  
-	  <parameter name="selectedbrowser" value="firefox" />    
-	  <parameter name="testcasename" value="Logo E2E - firefox" />		 
-	  <parameter name="startingurl" value="https://www.looka.com/" />	
-	  <parameter name="seleniumhub" value="http://localhost:4546/wd/hub" />
-	  <classes> 
-		  <class name="com.looka.testcases.LogoManagement">               
 		<!--  	<methods> <include name="verifylogger" /> </methods> -->
 		  </class>
 	  </classes>
@@ -51,20 +25,6 @@
 	  <parameter name="seleniumhub" value="http://localhost:4546/wd/hub" />
 	  <classes> 
 		  <class name="com.tictoc.testcases.VerifySavingsDDTonGrid">               
-		<!--  	<methods> <include name="verifylogger" /> </methods> -->
-		  </class>
-	  </classes>
-  </test> <!-- Test -->
-  
-  
-  
-    <test name="LogoEdge">  
-	  <parameter name="selectedbrowser" value="edge" />    
-	  <parameter name="testcasename" value="Logo E2E - edge" />		 
-	  <parameter name="startingurl" value="https://www.looka.com/" />		
-	  <parameter name="seleniumhub" value="http://localhost:4546/wd/hub" />
-	  <classes> 
-		  <class name="com.looka.testcases.LogoManagement">              
 		<!--  	<methods> <include name="verifylogger" /> </methods> -->
 		  </class>
 	  </classes>

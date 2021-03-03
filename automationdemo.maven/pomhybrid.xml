@@ -13,7 +13,7 @@
 	 
 	<!-- specify testng.xml for test execution!!!! -->
 	<properties>
-	<suiteXmlFile>XMLfiles/FullRegression.xml</suiteXmlFile>
+	<suiteXmlFile>XMLfiles/HybridE2E.xml</suiteXmlFile>
 	 
 	</properties>
 	 
