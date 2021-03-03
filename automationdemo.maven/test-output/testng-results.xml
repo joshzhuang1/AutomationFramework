@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="7" passed="7">
+<testng-results skipped="0" failed="3" ignored="0" total="9" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Logo E2E Suite" duration-ms="231342" started-at="2021-03-03T04:42:59Z" finished-at="2021-03-03T04:46:50Z">
+  <suite name="Suite" duration-ms="78898" started-at="2021-03-03T04:50:36Z" finished-at="2021-03-03T04:51:55Z">
     <groups>
     </groups>
-    <test name="EdgeTest" duration-ms="231342" started-at="2021-03-03T04:42:59Z" finished-at="2021-03-03T04:46:50Z">
-      <class name="com.looka.testcases.LogoManagement">
-        <test-method status="PASS" signature="initExtentReport(java.lang.String)[pri:0, instance:com.looka.testcases.LogoManagement@a9cd3b1]" name="initExtentReport" is-config="true" duration-ms="284" started-at="2021-03-03T04:42:59Z" finished-at="2021-03-03T04:42:59Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Logo E2E - edge]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initExtentReport -->
-        <test-method status="PASS" signature="launchApp(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.looka.testcases.LogoManagement@a9cd3b1]" name="launchApp" is-config="true" duration-ms="10029" started-at="2021-03-03T04:42:59Z" depends-on-methods="com.looka.testcases.LogoManagement.initExtentReport" finished-at="2021-03-03T04:43:09Z">
+    <test name="EdgeTest" duration-ms="75537" started-at="2021-03-03T04:50:36Z" finished-at="2021-03-03T04:51:51Z">
+      <class name="com.tictoc.testcases.VerifySavingsDDTonGrid">
+        <test-method status="PASS" signature="launchApp(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@3c407114]" name="launchApp" is-config="true" duration-ms="6478" started-at="2021-03-03T04:50:36Z" finished-at="2021-03-03T04:50:42Z">
           <params>
             <param index="0">
               <value>
@@ -27,7 +16,7 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[https://www.looka.com/]]>
+                <![CDATA[https://tictoc.com.au/]]>
               </value>
             </param>
             <param index="2">
@@ -39,116 +28,354 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApp -->
-        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:1, instance:com.looka.testcases.LogoManagement@a9cd3b1]" name="login" duration-ms="20554" started-at="2021-03-03T04:43:10Z" data-provider="logindata" finished-at="2021-03-03T04:43:30Z">
+        <test-method status="PASS" signature="initTestReport(java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@3c407114]" name="initTestReport" is-config="true" duration-ms="427" started-at="2021-03-03T04:50:42Z" depends-on-methods="com.tictoc.testcases.VerifySavingsDDTonGrid.launchApp" finished-at="2021-03-03T04:50:43Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[joshzhuangdemo@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[K!e9R#cj4KRXQ7w]]>
+                <![CDATA[Verify Loan Calc - edge]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="PASS" signature="addLogoToSaved(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.looka.testcases.LogoManagement@a9cd3b1]" name="addLogoToSaved" duration-ms="60996" started-at="2021-03-03T04:43:30Z" data-provider="logodata" finished-at="2021-03-03T04:44:31Z">
+        </test-method> <!-- initTestReport -->
+        <test-method status="FAIL" signature="VerifyRefiSavings(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@3c407114]" name="VerifyRefiSavings" duration-ms="66607" started-at="2021-03-03T04:50:43Z" data-provider="calcdata" finished-at="2021-03-03T04:51:49Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Set test result to FAIL due to failed steps]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Set test result to FAIL due to failed steps
+at org.testng.Assert.fail(Assert.java:96)
+at utilities.auto.TestNGListener.onTestSuccess(TestNGListener.java:55)
+at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:70)
+at org.testng.internal.Invoker.runTestListeners(Invoker.java:1389)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:636)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRefiSavings -->
+        <test-method status="PASS" signature="VerifyRefiSavings(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@3c407114]" name="VerifyRefiSavings" duration-ms="22472" started-at="2021-03-03T04:50:44Z" data-provider="calcdata" finished-at="2021-03-03T04:51:06Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Financial Services]]>
+                <![CDATA[276622]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Orange]]>
+                <![CDATA[2.191]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[JoshZ]]>
+                <![CDATA[11]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[Premium Quality]]>
+                <![CDATA[2.19]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addLogoToSaved -->
-        <test-method status="PASS" signature="addLogoToSaved(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.looka.testcases.LogoManagement@a9cd3b1]" name="addLogoToSaved" duration-ms="56996" started-at="2021-03-03T04:44:31Z" data-provider="logodata" finished-at="2021-03-03T04:45:28Z">
+        </test-method> <!-- VerifyRefiSavings -->
+        <test-method status="PASS" signature="VerifyRefiSavings(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@3c407114]" name="VerifyRefiSavings" duration-ms="19012" started-at="2021-03-03T04:51:06Z" data-provider="calcdata" finished-at="2021-03-03T04:51:25Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Cafe]]>
+                <![CDATA[536800]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Purple]]>
+                <![CDATA[2.02]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[SSS ELE]]>
+                <![CDATA[20]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[Love & Peace]]>
+                <![CDATA[2.19]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addLogoToSaved -->
-        <test-method status="PASS" signature="deleteLogo(java.lang.String)[pri:3, instance:com.looka.testcases.LogoManagement@a9cd3b1]" name="deleteLogo" duration-ms="22663" started-at="2021-03-03T04:45:28Z" data-provider="deletelogo" finished-at="2021-03-03T04:45:51Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteLogo -->
-        <test-method status="PASS" signature="deleteLogo(java.lang.String)[pri:3, instance:com.looka.testcases.LogoManagement@a9cd3b1]" name="deleteLogo" duration-ms="23634" started-at="2021-03-03T04:45:51Z" data-provider="deletelogo" finished-at="2021-03-03T04:46:15Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteLogo -->
-        <test-method status="PASS" signature="deleteLogo(java.lang.String)[pri:3, instance:com.looka.testcases.LogoManagement@a9cd3b1]" name="deleteLogo" duration-ms="20804" started-at="2021-03-03T04:46:15Z" data-provider="deletelogo" finished-at="2021-03-03T04:46:36Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteLogo -->
-        <test-method status="PASS" signature="logoff()[pri:4, instance:com.looka.testcases.LogoManagement@a9cd3b1]" name="logoff" duration-ms="13680" started-at="2021-03-03T04:46:36Z" finished-at="2021-03-03T04:46:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logoff -->
-        <test-method status="PASS" signature="closeApp()[pri:0, instance:com.looka.testcases.LogoManagement@a9cd3b1]" name="closeApp" is-config="true" duration-ms="1161" started-at="2021-03-03T04:46:49Z" finished-at="2021-03-03T04:46:50Z">
+        </test-method> <!-- VerifyRefiSavings -->
+        <test-method status="PASS" signature="closeApp()[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@3c407114]" name="closeApp" is-config="true" duration-ms="2006" started-at="2021-03-03T04:51:49Z" finished-at="2021-03-03T04:51:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeApp -->
-      </class> <!-- com.looka.testcases.LogoManagement -->
+      </class> <!-- com.tictoc.testcases.VerifySavingsDDTonGrid -->
     </test> <!-- EdgeTest -->
-  </suite> <!-- Logo E2E Suite -->
+    <test name="ChromeTest" duration-ms="75537" started-at="2021-03-03T04:50:36Z" finished-at="2021-03-03T04:51:51Z">
+      <class name="com.tictoc.testcases.VerifySavingsDDTonGrid">
+        <test-method status="PASS" signature="launchApp(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@a9cd3b1]" name="launchApp" is-config="true" duration-ms="11382" started-at="2021-03-03T04:50:36Z" finished-at="2021-03-03T04:50:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://tictoc.com.au/]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[http://localhost:4546/wd/hub]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="initTestReport(java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@a9cd3b1]" name="initTestReport" is-config="true" duration-ms="1" started-at="2021-03-03T04:50:47Z" depends-on-methods="com.tictoc.testcases.VerifySavingsDDTonGrid.launchApp" finished-at="2021-03-03T04:50:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Verify Loan Calc - Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initTestReport -->
+        <test-method status="FAIL" signature="VerifyRefiSavings(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@a9cd3b1]" name="VerifyRefiSavings" duration-ms="63068" started-at="2021-03-03T04:50:47Z" data-provider="calcdata" finished-at="2021-03-03T04:51:50Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Set test result to FAIL due to failed steps]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Set test result to FAIL due to failed steps
+at org.testng.Assert.fail(Assert.java:96)
+at utilities.auto.TestNGListener.onTestSuccess(TestNGListener.java:55)
+at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:70)
+at org.testng.internal.Invoker.runTestListeners(Invoker.java:1389)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:636)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRefiSavings -->
+        <test-method status="PASS" signature="VerifyRefiSavings(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@a9cd3b1]" name="VerifyRefiSavings" duration-ms="19577" started-at="2021-03-03T04:50:47Z" data-provider="calcdata" finished-at="2021-03-03T04:51:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[276622]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2.191]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[11]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2.19]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRefiSavings -->
+        <test-method status="PASS" signature="VerifyRefiSavings(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@a9cd3b1]" name="VerifyRefiSavings" duration-ms="19093" started-at="2021-03-03T04:51:07Z" data-provider="calcdata" finished-at="2021-03-03T04:51:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[536800]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2.02]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2.19]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRefiSavings -->
+        <test-method status="PASS" signature="closeApp()[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@a9cd3b1]" name="closeApp" is-config="true" duration-ms="1070" started-at="2021-03-03T04:51:50Z" finished-at="2021-03-03T04:51:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeApp -->
+      </class> <!-- com.tictoc.testcases.VerifySavingsDDTonGrid -->
+    </test> <!-- ChromeTest -->
+    <test name="FireFoxTest" duration-ms="78898" started-at="2021-03-03T04:50:36Z" finished-at="2021-03-03T04:51:55Z">
+      <class name="com.tictoc.testcases.VerifySavingsDDTonGrid">
+        <test-method status="PASS" signature="launchApp(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@481a996b]" name="launchApp" is-config="true" duration-ms="10290" started-at="2021-03-03T04:50:36Z" finished-at="2021-03-03T04:50:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://tictoc.com.au/]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[http://localhost:4546/wd/hub]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApp -->
+        <test-method status="PASS" signature="initTestReport(java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@481a996b]" name="initTestReport" is-config="true" duration-ms="0" started-at="2021-03-03T04:50:46Z" depends-on-methods="com.tictoc.testcases.VerifySavingsDDTonGrid.launchApp" finished-at="2021-03-03T04:50:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Verify Loan Calc - firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initTestReport -->
+        <test-method status="FAIL" signature="VerifyRefiSavings(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@481a996b]" name="VerifyRefiSavings" duration-ms="67837" started-at="2021-03-03T04:50:46Z" data-provider="calcdata" finished-at="2021-03-03T04:51:54Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Set test result to FAIL due to failed steps]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Set test result to FAIL due to failed steps
+at org.testng.Assert.fail(Assert.java:96)
+at utilities.auto.TestNGListener.onTestSuccess(TestNGListener.java:55)
+at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:70)
+at org.testng.internal.Invoker.runTestListeners(Invoker.java:1389)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:636)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRefiSavings -->
+        <test-method status="PASS" signature="VerifyRefiSavings(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@481a996b]" name="VerifyRefiSavings" duration-ms="20258" started-at="2021-03-03T04:50:46Z" data-provider="calcdata" finished-at="2021-03-03T04:51:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[276622]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2.191]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[11]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2.19]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRefiSavings -->
+        <test-method status="PASS" signature="VerifyRefiSavings(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@481a996b]" name="VerifyRefiSavings" duration-ms="20994" started-at="2021-03-03T04:51:06Z" data-provider="calcdata" finished-at="2021-03-03T04:51:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[536800]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2.02]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2.19]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRefiSavings -->
+        <test-method status="PASS" signature="closeApp()[pri:0, instance:com.tictoc.testcases.VerifySavingsDDTonGrid@481a996b]" name="closeApp" is-config="true" duration-ms="760" started-at="2021-03-03T04:51:54Z" finished-at="2021-03-03T04:51:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeApp -->
+      </class> <!-- com.tictoc.testcases.VerifySavingsDDTonGrid -->
+    </test> <!-- FireFoxTest -->
+  </suite> <!-- Suite -->
 </testng-results>
