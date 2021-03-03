@@ -75,9 +75,9 @@ public class ExplorePage {
 		int logocount = 0;
 		for (int i = 1; i <= maxnumber; i++) {
 			if (i==1) {
-				isloaded = ToolBox.waitFor(By.xpath("//span[@class='css-j5zjwc']/div["+i+"]"), 8);
+				isloaded = ToolBox.waitFor(By.xpath("//span[@class='css-j5zjwc']/div["+i+"]"), 10);
 			}else {
-				isloaded = ToolBox.waitFor(By.xpath("//span[@class='css-j5zjwc']/div["+i+"]"), 3);
+				isloaded = ToolBox.waitFor(By.xpath("//span[@class='css-j5zjwc']/div["+i+"]"), 6);
 			}
 			
 			//if image is not loaded, exit loop, return how many logos are loaded

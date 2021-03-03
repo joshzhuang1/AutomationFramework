@@ -139,10 +139,10 @@ public class LogoManagement {
 		explorepage.checkLogoGenerating(3);
 		
 		//check if logos are generated within x seconds
-		explorepage.checkPickLogo(12);
+		explorepage.checkPickLogo(20);
 
 		//wait for all generated logos to be loaded
-		explorepage.waitgeneratedlogo(20);
+		explorepage.waitgeneratedlogo(30);
 
 		//select a photo to save
 		explorepage.selectSavedLogo(2);
