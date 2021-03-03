@@ -54,8 +54,8 @@ public class TestNGListener implements ITestListener {
 		if (ExtentReport.isExtReportFail()) {
 			Assert.fail("Set test result to FAIL due to failed steps"); //if this is executed, it will be directed to onTestFailure. how convenient.
 		} else {  //otherwise print PASSED in the report.
-			ExtentLogger.pass("*** Test case PASSED! *** --- "+result.getName());  
-			System.out.println("*** Test case PASSED! *** --- "+result.getName()); 
+			ExtentLogger.pass("##### Test Case PASSED :) ##### --- "+result.getName());  
+			System.out.println("##### Test Case PASSED :) ##### --- "+result.getName()); 
 		}
 	}
 
@@ -72,8 +72,8 @@ public class TestNGListener implements ITestListener {
 		      }
 		    }
 		
-		ExtentLogger.fail("*** Test case FAILED! Failed steps or exception *** --- "+result.getName());  
-		System.out.println("*** Test case FAILED! Failed steps or exception *** --- "+result.getName()); 
+		ExtentLogger.fail("##### Test Case FAILED :( ##### --- "+result.getName());  
+		System.out.println("##### Test Case FAILED :( ##### --- "+result.getName()); 
 	}
 
 	
