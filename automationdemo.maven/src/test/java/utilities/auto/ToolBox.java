@@ -124,8 +124,8 @@ public class ToolBox {
 		
 		
 		
-		//get random numbers
-		public static String getRandomNum(int digCount) {
+		//get random number string
+		public static String getRndNumStr(int digCount) {
 			Random rnd = new Random();
 			StringBuilder sb = new StringBuilder(digCount);
 		    for(int i=0; i < digCount; i++)

@@ -18,22 +18,41 @@ import utilities.auto.ToolBox;
  */
 
 
-public class ReadDatatableDemo {
+public class ReadDataManager {
 
 	
 	static String inputdata = "testdata/dataEXP.xlsx";
 	
 	public static void main(String[] args) throws IOException {
 
-		//import data from excel
+		//init a new DataManager Object using excel datasheet.
 		DataManager inputsheet = new DataManager(inputdata,"Sheet1");
 		
+		// uft-like data operation. 
+		int rcount = inputsheet.getRowCount();	// 1. get datatable rowcount. 
+		for (int i=1; i<=rcount; i++) {   
+			inputsheet.setCurrentRow(i); // 2. set current row
+			String val1 = inputsheet.getData("companyname");  //3. read data using col name
+			String val2 = inputsheet.getData("slogan");
+			String val3 = inputsheet.getData("colour");
+			String val4 = inputsheet.getData("logoid");
+			String val5 = inputsheet.getData("price");
+			
+			System.out.println(val1+" "+val2+" "+val3+" "+val4+" "+val5);
+			
+			//this directly writes random number string into excel "price" column!
+			inputsheet.setData("price", ToolBox.getRndNumStr(3)); 
+		}
+
+		System.out.println("==========================================");
+		
+		//below is demo to import and export data from/to excel
 		//2D array to accept data from excel
-		Object data[][] = inputsheet.getTestData();
+		Object data[][] = inputsheet.getTestData();	
 		
-		
-	    data[2][3] = ToolBox.getRandomNum(8);
-	    data[3][4] = ToolBox.getRandomNum(5);
+	    data[2][3] = ToolBox.getRndNumStr(8);
+	    data[1][3] = ToolBox.getRndNumStr(5);
+	    
 		
 		int rowNum = inputsheet.getRowCount();
 		
@@ -46,7 +65,8 @@ public class ReadDatatableDemo {
 			
 			System.out.println(companyname+" "+slogan+" "+colour+" "+logoid+" "+price);
 		}
-
+		
+		 System.out.println(inputsheet.getData(2, 3));
 		//export data to exel
 		inputsheet.exportData(data,inputdata);
 		
