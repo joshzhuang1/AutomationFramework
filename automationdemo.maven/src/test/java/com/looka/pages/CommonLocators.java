@@ -55,6 +55,8 @@ public class CommonLocators {
 	public boolean checkUserLogin() throws Exception {	
 		if (ToolBox.waitFor(menubutton, 8)) {
 			menubutton.click();
+			Thread.sleep(2400); //need to wait otherwise click closemenue may fail!
+			
 			if (ToolBox.waitFor(logout, 3)) {
 				ExtentLogger.pass("user login successful!");
 				closemenu.click();
