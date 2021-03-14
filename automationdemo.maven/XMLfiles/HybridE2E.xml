@@ -3,19 +3,19 @@
 <suite name="Full Regression Suite" parallel = "tests" thread-count = "5">
       
   
-   
-   <test name="LoanFF">  
+  
+   <test name="HappyCoFF">  
 	  <parameter name="selectedbrowser" value="firefox" />    
-	  <parameter name="testcasename" value="Verify Loan Calc - firefox" />		 
-	  <parameter name="startingurl" value="https://tictoc.com.au/" />	
+	  <parameter name="testcasename" value="Pricing Validation - firefox" />		 
+	  <parameter name="startingurl" value="https://happy.co" />	
+  	  <parameter name="datapath" value="testdata/pricetounitREF.xlsx" />
 	  <parameter name="seleniumhub" value="http://localhost:4546/wd/hub" />
 	  <classes> 
-		  <class name="com.tictoc.testcases.VerifySavingsDDTonGrid">               
+		  <class name="co.happy.testcases.PricingValidation">               
 		<!--  	<methods> <include name="verifylogger" /> </methods> -->
 		  </class>
 	  </classes>
   </test> <!-- Test -->
-  
   
   
     <test name="logoEdge">  
