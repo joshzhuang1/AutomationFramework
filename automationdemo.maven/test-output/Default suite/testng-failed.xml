@@ -3,15 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.looka.testcases.LogoManagement">
+      <class name="co.happy.testcases.PricingValidation">
         <methods>
-          <include name="deleteLogo"/>
-          <include name="logoff"/>
-          <include name="launchApp"/>
-          <include name="initExtentReport"/>
           <include name="closeApp"/>
+          <include name="initExtentReport"/>
+          <include name="verifyHPPricing"/>
         </methods>
-      </class> <!-- com.looka.testcases.LogoManagement -->
+      </class> <!-- co.happy.testcases.PricingValidation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
