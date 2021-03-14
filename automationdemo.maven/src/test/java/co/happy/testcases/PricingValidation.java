@@ -15,8 +15,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.common.TestReporting.ExtentLogger;
 import com.common.TestReporting.ExtentReport;
 import com.looka.pages.DashboardPage;
 import com.looka.pages.LoginPage;
@@ -38,15 +40,26 @@ import utilities.auto.ToolBox;
 
 public class PricingValidation {
 	WebDriver ldriver;
-	String reportfolder = "HappyCoPricing";
-	String testcasename = "HappyCoPricing";
-	String browsername = "chrome";
-	String url = "https://happy.co";
-	
+//	String reportfolder = "HappyCoPricing";
+//	String testcasename = "HappyCoPricing";
+//	String browsername = "chrome";
+//	String url = "https://happy.co";
+	String datapath = "testdata/pricetounit.xlsx"; //expected unit price table
 
-	@BeforeClass // init extreport
-	public void initExtentReport() throws IOException {
-		ExtentReport.createTestReport(testcasename); //init extent report
+	@BeforeClass 
+	@Parameters({"testcasename"})// init extreport
+	public void initExtentReport(String testname) throws IOException, Exception {
+		ExtentReport.createTestReport(testname); //init extent report. testname is logger name
+	}
+	
+	@BeforeClass (dependsOnMethods={"initExtentReport"}) //init browser instance and launch app
+	@Parameters({"selectedbrowser","startingurl","seleniumhub"}) // !!!this parameters will be from LogoE2E.xml and passed to below launchApp method
+	public void launchApp(String browsername, String auturl,String huburl) throws InterruptedException, IOException {
+		ldriver = BrowserFactory.initBrowser(browsername,huburl); //init threadlocal instance - recommended!
+		Thread.sleep(2000);	
+		
+		ldriver.manage().window().maximize(); //maximise window
+		ldriver.get(auturl); //navigate to *url*	
 	}
 	
 	@AfterClass //close chrome and flush extreport
@@ -62,19 +75,17 @@ public class PricingValidation {
 	
 	
 	@Test
-	public void verifyHPPricing() throws Exception {
+	@Parameters({"datapath"}) 
+	public void verifyHPPricing(String datapath) throws Exception {
 	
-		ldriver = BrowserFactory.initBrowser(browsername); //init threadlocal instance - recommended!
-		Thread.sleep(2000);	
-//		ExtentReport.createTestReport(reportfolder, reportfolder); //init extent report
-		
-		
-		ldriver.manage().window().maximize(); //maximise window
-		ldriver.get(url); //navigate to *url*	
+//		ldriver = BrowserFactory.initBrowser(browsername); //init threadlocal instance - recommended!
+//		Thread.sleep(2000);	
+////		ExtentReport.createTestReport(reportfolder, reportfolder); //init extent report		
+//		
+//		ldriver.manage().window().maximize(); //maximise window
+//		ldriver.get(url); //navigate to *url*	
 
-		
-		
-		
+		ExtentLogger.info("*******TEST DATA******** Input Data: "+ datapath);
 		
 		//init homepage
 		HomePage homepage = PageFactory.initElements(ldriver, HomePage.class);	
@@ -83,45 +94,18 @@ public class PricingValidation {
 		//init hppricing page
 		PricingPage pricingpage = PageFactory.initElements(ldriver, PricingPage.class);	
 		
+		
+		//navigate to Pricing page
 		homepage.naviToPricing();
+		
+		//navigate to Happy Property Pricing page
 		pricingpage.naviToHPPricing();
 		
-		
-		
-		hppricingpage.verifyPricing();
-		
-//		Thread.sleep(3000);
-		
-//		hppricingpage.verifyPricingSecond();
+		//validate the unit pricing - unit count is as expected for each level on the slide bar
+		hppricingpage.verifyPricing(datapath);
 		
 		Thread.sleep(1000);
-		
-		Assert.fail("END of testing#$D");
-		//login
-//		loginpage.login("joshzhuangdemo@gmail.com","K!e9R#cj4KRXQ7w");
-//		Thread.sleep(1000);
-//		dashboardpage.waitlogoloading(5);
-//		dashboardpage.deleteLogoByIndex("1");
-//		
-//		Assert.fail("END of testing#$D");
-////		Thread.sleep(15000);
-//		
-//		
-//		
-//
-//
-//		dashboardpage.deleteLogoByIndex("16");
-//		Thread.sleep(1000);	
-////		Assert.assertTrue(true);
-//		
-//		
-//		
-//		WebElement logo = this.ldriver.findElement(By.xpath("//span[@class='css-1f3l2gp']/div[3]"));
-//		ToolBox.waitFor(logo, 8); //the logos take some time to show up
-//		logo.click();
-//		
-//		Thread.sleep(1000);
-		
+			
 	}
 
 }

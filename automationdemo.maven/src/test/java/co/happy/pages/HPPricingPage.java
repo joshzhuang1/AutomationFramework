@@ -23,7 +23,9 @@ import utilities.auto.ToolBox;
  */
 public class HPPricingPage {
 
-	WebDriver driver;
+	WebDriver driver;	
+//	String datapath = "testdata/pricetounit.xlsx"; //expected unit price table
+	
 	//locators
 	@FindBy(how=How.XPATH,using="//label[@class='form-slider']")
 	WebElement pricingslider;
@@ -45,47 +47,41 @@ public class HPPricingPage {
 	
 	
 	//slide to right twice
-	public void verifyPricing() throws Exception {	
+	public void verifyPricing(String datapath) throws Exception {	
 		Actions action= new Actions(driver);
 		//intial position 5000 units, -> 3 times, then <- 6 times, total 9 times
 		for (int i=0; i<=9; i++) {
-			String unit = getUnitCount();
-			String expprice = getPrice(unit);
-			String actprice = getUnitPrice();
 			
-			if (i == 0) {
-				continue;
-			} else if (i<=1) {
+			if (i == 0) { 
+				// i = 0, do nothing
+			} else if (i == 1) { // i == 1, don't click anything 
 				action.moveToElement(pricingslider).click(pricingslider).sendKeys(Keys.ARROW_UP).perform();
-			} else if (i<=3) {
+			} else if (i<=3) {  // while i <= 3, slide to right
 				action.sendKeys(Keys.ARROW_UP).perform();
-			} else {
+			} else {    	// while i <= 9, slide to left
 				action.sendKeys(Keys.ARROW_DOWN).perform();
 			}
+						
 			Thread.sleep(1500);
 			
+			//get actuall unit count and unit price
+			String unit = getUnitCount();
+			String actprice = getUnitPrice();
+			
+			//call method to get expected unit price
+			String expprice = getPrice(unit,datapath);
+			
+			//validate if unit price is as expected.
 			if (Objects.equals(expprice,actprice)) {
-				ExtentLogger.pass("Unit count = "+unit+". Expected price = "+expprice+". Actual price: "+actprice);
+				ExtentLogger.pass("Unit count = "+unit+". Expected price = "+expprice+". Actual price = "+actprice);
 			} else {
-				ExtentLogger.failshot("Unit count = "+unit+". Expected price = "+expprice+". Actual price: "+actprice);
+				ExtentLogger.failshot("Unit count = "+unit+". Expected price = "+expprice+". Actual price = "+actprice);
 			}	
 
 		}
 
-		
-		
-//		Actions action= new Actions(driver);
-//		action.moveToElement(pricingslider).click(pricingslider).sendKeys(Keys.ARROW_UP).sendKeys(Keys.ARROW_UP).perform();
 	}
-	
-	//slide to left twice
-	public void verifyPricingSecond() throws Exception {	
-		Actions action= new Actions(driver);
-		action.moveToElement(pricingslider).click(pricingslider).sendKeys(Keys.ARROW_DOWN).perform();
-		Thread.sleep(1000);	
-		action.sendKeys(Keys.ARROW_DOWN).perform();
-	}
-	
+
 	
 	//get displayed unit count value
 	public String getUnitCount() {
@@ -99,20 +95,22 @@ public class HPPricingPage {
 	}
 	
 	
-	//get expected unit price from datatable "testdata/pricetounit.xlsx"
-	public String getPrice(String unitcount) {
+	//get expected unit price from "source of truth" ---- "testdata/pricetounit.xlsx"
+	public String getPrice(String unitcount, String datapath) {
 		//init return value
-		String price = "value not defined! check 'testdata/pricetounit.xlsx'! ";
+		String price = "value not defined! check "+datapath;
 		
 		//init a new DataManager Object using excel datasheet.
-		DataManager inputsheet = new DataManager("testdata/pricetounit.xlsx","Sheet1");
+		DataManager inputsheet = new DataManager(datapath,"Sheet1");
+		
+		//get row count of input data
 		int rcount = inputsheet.getRowCount();	
 		
 		for (int i=1; i<=rcount; i++) {   
-			inputsheet.setCurrentRow(i); // 2. set current row
-			String unit = inputsheet.getData("unit");  //3. read data using col name
+			inputsheet.setCurrentRow(i); // set current row
+			String unit = inputsheet.getData("unit");  // read data using col name
 			if (Objects.equals(unit, unitcount)) {
-				return inputsheet.getData("price");
+				return inputsheet.getData("price");  //get price value
 			}
 		}
 		

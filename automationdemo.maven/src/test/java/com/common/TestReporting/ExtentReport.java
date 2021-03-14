@@ -23,7 +23,7 @@ public class ExtentReport {
 	private static ExtentReports extent;
 	//public static ExtentTest test;
 	
-	//Name of the Test Class that calls this methods
+	//Specify the path where report is generated. Name of the Test Class that calls this methods
 	static String foldername = ToolBox.getCallerCallerClassName(); 
 	
 	//init report, specify report folder path (using test class name), load config file
