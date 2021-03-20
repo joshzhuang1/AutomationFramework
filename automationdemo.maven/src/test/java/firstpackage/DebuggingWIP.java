@@ -80,7 +80,7 @@ public class DebuggingWIP {
 		
 		ldriver.manage().window().maximize(); //maximise window
 		ldriver.get(url); //navigate to *url*	
-		Assert.fail("END of testing#$D");
+	//	Assert.fail("END of testing#$D");
 		//init LoginPage
 		LoginPage loginpage = PageFactory.initElements(ldriver, LoginPage.class);	
 		//init dashboard page
@@ -92,7 +92,7 @@ public class DebuggingWIP {
 		dashboardpage.waitlogoloading(5);
 		dashboardpage.deleteLogoByIndex("1");
 		
-		Assert.fail("END of testing#$D");
+//		Assert.fail("END of testing#$D");
 //		Thread.sleep(15000);
 		
 		
