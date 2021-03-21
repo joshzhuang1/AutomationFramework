@@ -25,14 +25,14 @@ public class ExtentReport {
 	
 	//Specify the path where report is generated. Name of the Test Class that calls this methods
 	static String foldername = ToolBox.getCallerCallerClassName(); 
+	static String reportpath = "testreports/"+foldername+"/index.html";
 	
 	//init report, specify report folder path (using test class name), load config file
 	public static void initReports() throws IOException {
 		if(Objects.isNull(extent)) { // don't run this if extent object already exists
 			extent = new ExtentReports(); //create new extentreport object
 			
-			ExtentSparkReporter spark = new ExtentSparkReporter("testreports/"+foldername
-					+"/index.html"); //set report html file path and name
+			ExtentSparkReporter spark = new ExtentSparkReporter(reportpath); //set report html file path and name
 			extent.attachReporter(spark); //Attach a reporter to access all started tests, nodes and logs			
 			spark.loadXMLConfig(new File("XMLfiles/extentconfig.xml")); //Load extentconfig.xml file	
 		}
@@ -65,7 +65,7 @@ public class ExtentReport {
 	//tear down report, launch report.
 	public static void flushReports() throws IOException {
 		extent.flush(); //write all the test logs to the report file
-		Desktop.getDesktop().browse(new File("testreports/"+foldername+"/index.html").toURI()); //open html report at the end of the test
+		Desktop.getDesktop().browse(new File(reportpath).toURI()); //open html report at the end of the test
 //		syncReportResult(); //if any failed steps in Extentreport, also fail TestNG report.
 	}
 	
