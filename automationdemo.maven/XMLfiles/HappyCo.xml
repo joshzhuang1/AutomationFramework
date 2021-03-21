@@ -35,7 +35,7 @@
 	  <parameter name="selectedbrowser" value="edge" />    
 	  <parameter name="testcasename" value="Pricing Validation - edge" />		 
 	  <parameter name="startingurl" value="https://happy.co" />
-  	  <parameter name="datapath" value="testdata/pricetounit.xlsx" />		
+  	  <parameter name="datapath" value="testdata/pricetounitREF.xlsx" />		
 	  <parameter name="seleniumhub" value="http://localhost:4546/wd/hub" />
 	  <classes> 
 		  <class name="co.happy.testcases.PricingValidation">              
