@@ -1,1 +1,0 @@
-java -Dfile.encoding=UTF-8 -jar C:\Users\JoshZhuang\Downloads\jenkins.war --httpPort=8084
